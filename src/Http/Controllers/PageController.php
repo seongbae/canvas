@@ -26,19 +26,39 @@ class PageController extends CanvasController
     public function getPage($uri=null)
     {
         $paths = explode("/", $uri);
+        $permalinks = array_flip(json_decode(option('resource_rename'), true));
         
         if (count($paths) == 1)
-            $page = Page::where('slug', $paths)->first();
+        {
+            if (array_key_exists($paths[0], $permalinks))
+            {
+                $route = app('router')->getRoutes()->match(app('request')->create($permalinks[$paths[0]]));
+                return \App::call($route->action['controller']); 
+            }    
+            
+            $page = Page::where('slug', $paths[0])->first();
+
+        }
         else
         {
+            if (array_key_exists($paths[0], $permalinks))
+            {
+                $route = app('router')->getRoutes()->match(app('request')->create($permalinks[$paths[0]].'/'.$paths[1]));
+                return \App::call($route->action['controller'], [$paths[1]]);
+            }
+            
             $parent = Page::where('slug', $paths[count($paths)-2])->first();
-            $page = Page::where('slug', $paths[count($paths)-1])->where('parent_id', $parent->id)->first();
+
+            if($parent)
+                $page = Page::where('slug', $paths[count($paths)-1])->where('parent_id', $parent->id)->first();
+            else
+                $page = null;
         }
 
         if (!$page)
             abort(404);
 
-        return view('canvas::frontend.page')
+        return view('page')
             ->with('page', $page)
             ->with('title', $page->meta_title)
             ->with('description', $page->meta_description);

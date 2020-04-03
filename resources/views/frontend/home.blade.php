@@ -7,9 +7,9 @@
       <img src="{{ asset('canvas/img/astronaut.png')}}" class="img-fluid">
     </div>
     <div class="col-md-6 order-md-1 text-center text-md-left pr-md-5">
-      <h1 class="mb-3 bd-text-purple-bright">CMS Starter Kit</h1>
+      <h1 class="mb-3 bd-text-purple-bright">Lightweight CMS</h1>
       <p class="lead">
-        Canvas is an open source CMS starter kit built with Laravel.  It provides a starting point for building an advanced website or your own content management system.
+        Canvas is an open source, lightweight CMS built with Laravel.  It provides a starting point for building an advanced website or your own content management system.
       </p>
       <p class="lead mb-4">
         Canvas comes with admin dashboard for managing users, roles & permissions, media items, simple pages, and system logs.  You can use Canvas to build simple websites or build more advanced websites.  It also has support for building modular components.
@@ -27,78 +27,35 @@
 </div>
 </div>
 <section>
-<div class="container marketing ">
-  <div class="row">
-  <div class="col-lg-4">
-    <i class="fas fa-feather-alt fa-5x m-3"></i>
-    <h2>Lightweight</h2>
-    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <i class="fas fa-cubes fa-5x m-3"></i>
-      <h2>Modular</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <i class="fas fa-wrench fa-5x m-3"></i>
-        <h2>Basic Scaffolding</h2>
-        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-        </div><!-- /.col-lg-4 -->
-        
-        </div><!-- /.row -->
-        <!-- /END THE FEATURETTES -->
-</div>
-</section>
-<section id="extra-features" class="extra-features bg-light">
-      <div class="container">
-        <header>
-          <h2>Features</h2>
-          <div class="row">
-            <p class="lead col-lg-8 mx-auto"></p>
-          </div>
-        </header>
-        <div class="grid row">
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="fas fa-cubes "></i></div>
-            <h3 class="h5">Admin Dashboard</h3>
-            <p>Admin dashboard out of box integrated with Laravel</p>
-          </div>
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="fas fa-cubes "></i></div>
-            <h3 class="h5">User Management</h3>
-            <p>Create, edit, delete users.</p>
-          </div>
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="fas fa-cubes "></i></div>
-            <h3 class="h5">User Registration</h3>
-            <p>User registration, login, password reset</p>
-          </div>
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="fas fa-cubes "></i></div>
-            <h3 class="h5">Roles & Permissions</h3>
-            <p>Configure user roles and permissions to manage access to resources.</p>
-          </div>
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="fas fa-cubes "></i></div>
-            <h3 class="h5">Module Support</h3>
-            <p>Build additional features using module system.</p>
-          </div>
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="fas fa-cubes "></i></div>
-            <h3 class="h5">Page Manager</h3>
-            <p>Create and manage pages.</p>
-          </div>
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="fas fa-cubes "></i></div>
-            <h3 class="h5">Media Manager</h3>
-            <p>Upload images.</p>
-          </div>
-          <div class="item col-lg-4 col-md-6">
-            <div class="icon"> <i class="fas fa-cubes "></i></div>
-            <h3 class="h5">Logs</h3>
-            <p>View user activity and system logs from admin dashboard.</p>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div id="section-title" class="mb-4">
+          <h3>All Features</h3>
         </div>
+        <ul class="fa-ul">
+          <li><span class="fa-li"><i class="fas fa-check"></i></span>Admin dashboard</li>
+          <li><span class="fa-li"><i class="fas fa-check"></i></span>User management - add, edit, remove users</li>
+          <li><span class="fa-li"><i class="fas fa-check"></i></span>User registration - register, login, reset password</li>
+          <li><span class="fa-li"><i class="fas fa-check"></i></span>Roles and permissions management</li>
+          <li><span class="fa-li"><i class="fas fa-check"></i></span>Page management - add, edit, delete pages</li>
+          <li><span class="fa-li"><i class="fas fa-check"></i></span>Media manager - manage media items such as images and videos</li>
+          <li><span class="fa-li"><i class="fas fa-check"></i></span>Module support - extend additional features with module support</li>
+          <li><span class="fa-li"><i class="fas fa-check"></i></span>View logs - sytem and user activity logs</li>
+          <li><span class="fa-li"><i class="fas fa-check"></i></span>Tags - tag pages and media items</li>
+        </ul>
       </div>
-    </section>
+  </div>
+</section>
+<section class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 text-center">
+        <img src="{{ asset('canvas/img/seongbae-400.jpg')}}">
+      </div>
+      <div class="col-lg-6">
+        Hi there. Thanks for downloading Canvas.  If you have any issues, please feel free to create an issue on the <a href="https://github.com/seongbae/canvas">github page</a>.
+      </div>
+  </div>
+</section>
 @endsection

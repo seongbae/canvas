@@ -6,7 +6,7 @@
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{config('app.name')}}</title>
+  <title>Canvas</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
@@ -76,7 +76,7 @@
     <a href="/admin" class="brand-link">
       <img src="{{ asset('canvas/img/canvas-c.png')}}" alt="Canvas Logo" class="brand-image"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">{{config('app.name')}}</span>
+      <span class="brand-text font-weight-light">Canvas</span>
     </a>
 
     <!-- Sidebar -->

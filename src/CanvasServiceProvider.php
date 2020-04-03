@@ -46,31 +46,29 @@ class CanvasServiceProvider extends ServiceProvider
 
         // View stubs
         $this->publishes([__DIR__ . '/../resources/views' => resource_path('views/vendor/canvas')], ['canvas-views']);
-        $this->publishes([__DIR__ . '/../resources/vendor' => resource_path('views/vendor')], ['canvas-vendor-views']);
+        $this->publishes([__DIR__ . '/../resources/vendor' => resource_path('views/vendor')], ['canvas-install', 'canvas-vendor-views']);
 
         // Seeder stubs
-        $this->publishes([__DIR__ . '/../database/seeds' => database_path('seeds')], ['canvas-seeds']);
+        $this->publishes([__DIR__ . '/../database/seeds' => database_path('seeds')], ['canvas-install', 'canvas-seeds']);
 
         // Routes stubs
         $this->publishes([__DIR__ . '/../resources/stubs/routes/routes.stub' => base_path('routes/web.php')], ['canvas-install']);
 
-        // DB stubs
+        
         $this->mergeConfigFrom(__DIR__.'/../config/activitylog.php', 'activitylog');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'canvas');
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php', 'canvas');
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        //$this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');;
 
         if ($this->app->runningInConsole()) {
             $this->commands(CanvasInstallCommand::class);
-            //$this->commands(CacheClearCommand::class);
-            //$this->commands(CacheReset::class);
         }
 
         // Do not run below using initial installation when DB is not available   
         if (Schema::hasTable('options'))
         {
-            $this->loadViewsFrom(__DIR__.'/../views', 'canvas');
+            config(['mail.from.name' => option('from_name')]);
+            config(['mail.from.address' => option('from_email')]);
 
             // Disable theme support for now
             // $theme = option('theme');
@@ -83,9 +81,7 @@ class CanvasServiceProvider extends ServiceProvider
             // array_unshift($paths, resource_path('views/themes/'.$theme));
             // config(["view.paths" => $paths ]);
 
-            config(['mail.from.name' => option('from_name')]);
-            config(['mail.from.address' => option('from_email')]);
-
+            
             $modulesArray = json_decode(option('modules'), true);
             $moduleMenus = array();
             if ($modulesArray != null)
@@ -107,8 +103,7 @@ class CanvasServiceProvider extends ServiceProvider
                 $view->with('moduleMenus',  $moduleMenus);
             });
 
-            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-
+            // for loading page routes dynamically
             \App::register('Seongbae\Canvas\Providers\PageServiceProvider');
 
         }

@@ -11,15 +11,26 @@
         }
     ],
     "require": {
-        "barryvdh/laravel-ide-helper": "^2.6",
-        "laravel/framework": "6.*",
-        "lesichkovm/laravel-advanced-route": "^1.6",
-        "yajra/laravel-datatables-html": "^4.0",
-        "yajra/laravel-datatables-oracle": "~9.0"
+        "appstract/laravel-options": "^3.0",
+        "barryvdh/laravel-snappy": "^0.4.7",
+        "laravel/cashier": "^10.7",
+        "laravelista/comments": "^3.3",
+        "rap2hpoutre/laravel-log-viewer": "^1.3",
+        "spatie/laravel-activitylog": "^3.11",
+        "spatie/laravel-flash": "^1.3",
+        "spatie/laravel-medialibrary": "^7.0.0",
+        "spatie/laravel-permission": "^3.11",
+        "spatie/laravel-searchable": "^1.6",
+        "spatie/laravel-tags": "^2.6",
+        "stripe/stripe-php": "^7.23",
+        "yajra/laravel-datatables": "1.5",
+        "yajra/laravel-datatables-oracle": "~9.0",
+        "intervention/image": "^2.4@dev"
     },
     "autoload": {
         "psr-4": {
-            "seongbae\\canvas\\": "src"
+            "Seongbae\\Canvas\\": "src",
+            "Spatie\\Flash\\": "vendor/spatie/laravel-flash/src"
         },
         "files": [
             "src/Helpers.php"
@@ -28,8 +39,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "seongbae\\canvas\\Providers\\CanvasServiceProvider"
+                "Seongbae\\Canvas\\CanvasServiceProvider",
+                "Appstract\\Options\\OptionsServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "dev"
 }

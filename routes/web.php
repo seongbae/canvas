@@ -1,17 +1,9 @@
 <?php
 
-Route::group(['namespace' => 'App\Canvas\Http\Controllers', 'middleware' => ['web']], function () {
 
-	Route::get('dynamicModal/{id}',[
-	    'as'=>'dynamicModal',
-	    'uses'=> '\App\Canvas\Http\Controllers\Admin\MediaController@loadModal'
-	]);		
-
-
-});
 
 // Admin pages
-Route::group(['namespace'=>'\App\Canvas\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
+Route::group(['namespace'=>'Seongbae\Canvas\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['web','auth']], function () {
 	
 	// Admin home
 	Route::get('/', 'AdminController@showHome');

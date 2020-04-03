@@ -49,7 +49,7 @@ class CanvasServiceProvider extends ServiceProvider
         $this->publishes([__DIR__ . '/../resources/vendor' => resource_path('views/vendor')], ['canvas-install', 'canvas-vendor-views']);
 
         // Seeder stubs
-        $this->publishes([__DIR__ . '/../database/seeds' => database_path('seeds')], ['canvas-install', 'canvas-seeds']);
+        //$this->publishes([__DIR__ . '/../database/seeds' => database_path('seeds')], ['canvas-install', 'canvas-seeds']);
 
         // Routes stubs
         $this->publishes([__DIR__ . '/../resources/stubs/routes/routes.stub' => base_path('routes/web.php')], ['canvas-install']);

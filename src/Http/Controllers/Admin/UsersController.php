@@ -15,9 +15,15 @@ use Alert;
 use Seongbae\Canvas\DataTables\UsersDataTable;
 use Intervention\Image\Facades\Image;
 use Seongbae\Canvas\Http\Controllers\CanvasController;
+use File;
+use Storage;
 
 class UsersController extends CanvasController
 {
+
+    const USER_IMG_STORAGE_PATH = 'app/public/users';
+    const USER_IMG_ASSET_PATH = 'storage/users';
+
     /**
      * Create a new controller instance.
      *
@@ -74,26 +80,12 @@ class UsersController extends CanvasController
         $user->password = Hash::make($request->get('password'));
 
         if ($request->file('file'))
-        {
-            $file = $request->file->getClientOriginalName();
-            $filename = pathinfo($file, PATHINFO_FILENAME);
-            $extension = pathinfo($file, PATHINFO_EXTENSION);
-            $name = uniqid('img_').'.'. $extension; 
-            $storagePath = public_path('users/'.$name);
-            
-            Image::make($request->file('file'))
-                ->fit(400, 400)
-                ->save($storagePath);
-
-            $user->photo_url = asset('img/users/'.$name);
-        }
+            $user->photo_url = $this->saveImage($request->file('file'));
         
         $user->save();
 
         if ($request->get('role'))
-        {
             $user->syncRoles($request->get('role'));
-        }
 
         // Send notification if checked
         if ($request->get('send_email'))
@@ -142,29 +134,11 @@ class UsersController extends CanvasController
             $user->password = Hash::make(trim($request->get('password')));
 
         if ($request->get('role'))
-        {
             $user->syncRoles($request->get('role'));
-        }
-
+        
         if ($request->file('file'))
-        {
-            $file = $request->file->getClientOriginalName();
-            $filename = pathinfo($file, PATHINFO_FILENAME);
-            $extension = pathinfo($file, PATHINFO_EXTENSION);
-            $name = uniqid('img_').'.'. $extension; 
-            $storagePath = public_path('img/users/'.$name); //'public/profiles';
-            //$storedFile = $request->file->storeAs($storagePath, $name);
-            // if (!file_exists($storagePath)) {
-            //     mkdir($storagePath, 666, true);
-            // }
-
-            Image::make($request->file('file'))
-                ->fit(400, 400)
-                ->save($storagePath);
-
-            $user->photo_url = asset('img/users/'.$name);
-        }
-
+            $user->photo_url = $this->saveImage($request->file('file'));
+        
         $user->save();
 
         flash()->success('User successfully updated', 'Success');
@@ -180,6 +154,28 @@ class UsersController extends CanvasController
         flash()->success('User successfully deleted', 'Success');
 
         return redirect()->route('admin.users.index');
+    }
+
+    private function saveImage($image, $folder, $crop = false)
+    {
+        $file = $image->getClientOriginalName();
+        $filename = pathinfo($file, PATHINFO_FILENAME);
+        $extension = pathinfo($file, PATHINFO_EXTENSION);
+        $name = uniqid('user_').'.'. $extension; 
+
+        if (!\File::isDirectory(storage_path(self::USER_IMG_STORAGE_PATH)))
+            \File::makeDirectory(storage_path(self::USER_IMG_STORAGE_PATH), 0777, true, true);
+
+        $storagePath = storage_path(self::USER_IMG_STORAGE_PATH.'/'.$name); 
+
+        if ($crop)
+            Image::make($image)
+                ->fit(400, 400)
+                ->save($storagePath);
+        else
+            
+
+        return asset(self::USER_IMG_ASSET_PATH.'/'.$name);
     }
 
 }

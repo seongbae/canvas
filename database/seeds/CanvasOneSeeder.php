@@ -1,8 +1,9 @@
 <?php
 
+
 use Illuminate\Database\Seeder;
 
-class CanvasSeeder extends Seeder
+class CanvasOneSeeder extends Seeder
 {
     /**
      * Seed the application's database.

@@ -78,6 +78,11 @@ class MediaController extends CanvasController
 
         $media->type = 'image';
         $media->user_id = Auth::id();
+
+        if ($request->get('tags')) {
+            $media->syncTags(explode(",", $request->get('tags')));
+        }
+
         $media->save();
 
         flash()->success('Item saved');
@@ -136,6 +141,10 @@ class MediaController extends CanvasController
             $media->path = $filePath;
         }
 
+        if ($request->get('tags')) {
+            $media->syncTags(explode(",", $request->get('tags')));
+        }
+        
         $media->save();
 
         flash()->success('Item saved');

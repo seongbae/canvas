@@ -16,6 +16,7 @@
   <link href="{{ asset('canvas/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('canvas/css/adminlte.min.css') }}" rel="stylesheet">
   <link href="{{ asset('canvas/css/datatables.min.css') }}" rel="stylesheet" >
+  <link href="{{ asset('canvas/css/canvas.css') }}" rel="stylesheet" >
   <link href="{{ asset('canvas/css/custom.css') }}" rel="stylesheet">
 
   <!-- Load styles from child views -->
@@ -172,6 +173,7 @@
 <script src="{{ asset('canvas/js/adminlte.min.js') }}"></script>
 <script src="{{ asset('canvas/js/datatables.min.js') }}"></script>
 <script src="{{ asset('canvas/js/buttons.server-side.js') }}"></script>
+<script src="{{ asset('canvas/js/tagsinput.js') }}"></script>
  @stack('scripts')
 </body>
 </html>

@@ -11,12 +11,11 @@ use App\Achievement;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
-use Laravelista\Comments\Commenter;
 use Laravel\Cashier\Billable;
 
 class User extends Authenticatable implements Searchable
 {
-    use Notifiable, HasRoles, LogsActivity, Commenter, Billable;
+    use Notifiable, HasRoles, LogsActivity, Billable;
 
     /**
      * The attributes that are mass assignable.

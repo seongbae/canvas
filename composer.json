@@ -29,8 +29,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Seongbae\\Canvas\\": "src",
-            "Spatie\\Flash\\": "vendor/spatie/laravel-flash/src"
+            "Seongbae\\Canvas\\": "src"
         },
         "files": [
             "src/Helpers.php"

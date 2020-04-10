@@ -10,6 +10,7 @@ use Schema;
 use Seongbae\Canvas\Console\Commands\CanvasInstallCommand;
 use Seongbae\Canvas\Console\Commands\CacheClearCommand;
 use Spatie\Permission\Commands\CacheReset;
+use DB;
 
 class CanvasServiceProvider extends ServiceProvider
 {
@@ -64,31 +65,22 @@ class CanvasServiceProvider extends ServiceProvider
             $this->commands(CanvasInstallCommand::class);
         }
 
+        $pdo = DB::connection()->getPdo();
+
         // Do not run below using initial installation when DB is not available   
-        if (Schema::hasTable('options'))
+        if ($pdo && Schema::hasTable('options'))
         {
+            // Set config values from database
             config(['mail.from.name' => option('from_name')]);
             config(['mail.from.address' => option('from_email')]);
 
-            // Disable theme support for now
-            // $theme = option('theme');
-
-            // view()->composer('*', function ($view) use($theme) {
-            //     $view->with('theme',  $theme);
-            // });
-
-            // $paths = config('view.paths');
-            // array_unshift($paths, resource_path('views/themes/'.$theme));
-            // config(["view.paths" => $paths ]);
-
-            
             $modulesArray = json_decode(option('modules'), true);
             $moduleMenus = array();
             if ($modulesArray != null)
             {
                 foreach ($modulesArray as $module=>$value)
                 {
-                    if ($value == 2)
+                    if ($value == 2) // 0 = uninstalled, 1 = installed but not active, 2 = installed and active
                     {
                         app('config')->set('custom', require app_path('Modules/'.$module.'/module.php'));
 
@@ -105,6 +97,17 @@ class CanvasServiceProvider extends ServiceProvider
 
             // for loading page routes dynamically
             \App::register('Seongbae\Canvas\Providers\PageServiceProvider');
+
+            // Disable theme support for now
+            // $theme = option('theme');
+
+            // view()->composer('*', function ($view) use($theme) {
+            //     $view->with('theme',  $theme);
+            // });
+
+            // $paths = config('view.paths');
+            // array_unshift($paths, resource_path('views/themes/'.$theme));
+            // config(["view.paths" => $paths ]);
 
         }
     }

@@ -7,9 +7,9 @@
       <img src="{{ asset('canvas/img/astronaut.png')}}" class="img-fluid">
     </div>
     <div class="col-md-6 order-md-1 text-center text-md-left pr-md-5">
-      <h1 class="mb-3 bd-text-purple-bright">Lightweight CMS</h1>
+      <h1 class="mb-3 bd-text-purple-bright">Canvas</h1>
       <p class="lead">
-        Canvas is an open source, lightweight CMS built with Laravel.  It provides a starting point for building an advanced website or your own content management system.
+        Canvas is an admin panel built with Laravel. It comes with admin dashboard for managing users, roles & permissions, media items, simple pages, and system logs.
       </p>
       <p class="lead mb-4">
         Canvas comes with admin dashboard for managing users, roles & permissions, media items, simple pages, and system logs.  You can use Canvas to build simple websites or build more advanced websites.  It also has support for building modular components.
@@ -40,9 +40,7 @@
           <li><span class="fa-li"><i class="fas fa-check"></i></span>Roles and permissions management</li>
           <li><span class="fa-li"><i class="fas fa-check"></i></span>Page management - add, edit, delete pages</li>
           <li><span class="fa-li"><i class="fas fa-check"></i></span>Media manager - manage media items such as images and videos</li>
-          <li><span class="fa-li"><i class="fas fa-check"></i></span>Module support - extend additional features with module support</li>
           <li><span class="fa-li"><i class="fas fa-check"></i></span>View logs - sytem and user activity logs</li>
-          <li><span class="fa-li"><i class="fas fa-check"></i></span>Tags - tag pages and media items</li>
         </ul>
       </div>
   </div>

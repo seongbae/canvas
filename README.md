@@ -1,8 +1,6 @@
 # Canvas
 
-Canvas is an open source CMS starter kit built with Laravel. It provides a starting point for building an advanced website or your own content management system.
-
-Canvas comes with admin dashboard for managing users, roles & permissions, media items, simple pages, and system logs. You can use Canvas to build simple websites or build more advanced websites. It also has support for building modules.
+Canvas is an admin panel built with Laravel. It comes with admin dashboard for managing users, roles & permissions, media items, simple pages, and system logs. 
 
 ## Getting Started
 
@@ -36,7 +34,7 @@ At this point, if you go to the site at http://blog_url, you will see the Canvas
 
 ## Built With
 
-* [Laravel 6](https://www.laravel.com) - The web framework used
+* [Laravel 7](https://www.laravel.com) - The web framework used
 * [AdminLTE](https://adminlte.io/) - Admin Dashboard
 
 ## Contributing

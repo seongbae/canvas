@@ -26,7 +26,7 @@ class PageController extends CanvasController
     public function getPage($uri=null)
     {
         $paths = explode("/", $uri);
-        $permalinks = array_flip(json_decode(option('resource_rename'), true));
+        $permalinks = option('resource_rename') ? array_flip(json_decode(option('resource_rename'), true)) : [];
         
         if (count($paths) == 1)
         {

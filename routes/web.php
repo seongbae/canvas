@@ -1,6 +1,21 @@
 <?php
 
 
+Route::group(['namespace' => '\Seongbae\Canvas\Http\Controllers', 'middleware' => ['web']], function () {
+
+
+	Route::get('account', 'UserController@getUser');
+	Route::put('account/{id}/profile', 'UserController@updateProfile');
+	Route::post('account/{id}/password', 'UserController@updatePassword');
+
+	Route::get('dynamicModal/{id}',[
+	    'as'=>'dynamicModal',
+	    'uses'=> 'Admin\MediaController@loadModal'
+	]);		
+
+
+});
+
 
 // Admin pages
 Route::group(['namespace'=>'Seongbae\Canvas\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['web','auth']], function () {

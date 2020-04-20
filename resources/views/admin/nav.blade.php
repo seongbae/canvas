@@ -50,18 +50,22 @@
             @endif
             @endforeach
           @endif
+          @if (Auth::user()->can('manage-pages'))
           <li class="nav-item">
             <a href="/admin/pages" class="nav-link {{ (request()->is('admin/pages')) ? 'active' : '' }}">
               <i class="fas fa-file-alt nav-icon"></i>
               <p>Pages</p>
             </a>
           </li>
+          @endif
+          @if (Auth::user()->can('manage-media'))
           <li class="nav-item">
             <a href="/admin/media" class="nav-link {{ (request()->is('admin/media')) ? 'active' : '' }}">
               <i class="fas fa-images nav-icon"></i>
               <p>Media</p>
             </a>
           </li>
+          @endif
           @if (Auth::user()->can('manage-users'))
           <li class="nav-item has-treeview {{ (request()->is('admin/users*')) ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ (request()->is('admin/users*')) ? 'active' : '' }}">

@@ -22,6 +22,13 @@
   <!-- Load styles from child views -->
   @stack('styles')
 
+  <script src="{{ asset('canvas/js/jquery.min.js') }}"></script>
+  <script src="{{ asset('canvas/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('canvas/js/adminlte.min.js') }}"></script>
+  <script src="{{ asset('canvas/js/datatables.min.js') }}"></script>
+  <script src="{{ asset('canvas/js/buttons.server-side.js') }}"></script>
+  <script src="{{ asset('canvas/js/tagsinput.js') }}"></script>
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -165,15 +172,7 @@
 <!-- ./wrapper -->
 
 
-<!-- Tempusdominus Bootstrap 4 -->
-<!-- <script src="/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script> -->
 
-<script src="{{ asset('canvas/js/jquery.min.js') }}"></script>
-<script src="{{ asset('canvas/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('canvas/js/adminlte.min.js') }}"></script>
-<script src="{{ asset('canvas/js/datatables.min.js') }}"></script>
-<script src="{{ asset('canvas/js/buttons.server-side.js') }}"></script>
-<script src="{{ asset('canvas/js/tagsinput.js') }}"></script>
  @stack('scripts')
 </body>
 </html>

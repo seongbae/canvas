@@ -156,8 +156,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; {{date("Y")}} <a href="https://www.lnidigital.com">LNI Digital Marketing</a>.</strong>
-    All rights reserved.
+    <strong><a href="https://github.com/seongbae/canvas" target="_blank">Canvas Admin Panel</a></strong>
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> {{option('version')}}
     </div>

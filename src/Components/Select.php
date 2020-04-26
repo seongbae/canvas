@@ -29,6 +29,6 @@ class Select extends Component
 
     public function render()
     {
-        return view('crudify::select');
+        return view('canvas::select');
     }
 }

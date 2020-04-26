@@ -120,7 +120,7 @@ class CanvasServiceProvider extends ServiceProvider
 
         }
 
-        $this->loadViewComponentsAs('crudify', [
+        $this->loadViewComponentsAs('canvas', [
             Checkbox::class,
             Checkboxes::class,
             File::class,

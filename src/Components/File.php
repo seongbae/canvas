@@ -26,6 +26,6 @@ class File extends Component
 
     public function render()
     {
-        return view('crudify::file');
+        return view('canvas::file');
     }
 }

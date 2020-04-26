@@ -1,6 +1,6 @@
 <?php
 
-namespace Kejojedi\Crudify\Components;
+namespace Seongbae\Canvas\Components;
 
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
@@ -28,6 +28,6 @@ class Textarea extends Component
 
     public function render()
     {
-        return view('crudify::textarea');
+        return view('canvas::textarea');
     }
 }

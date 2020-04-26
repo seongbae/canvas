@@ -27,6 +27,6 @@ class Radios extends Component
 
     public function render()
     {
-        return view('crudify::radios');
+        return view('canvas::radios');
     }
 }

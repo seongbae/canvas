@@ -26,6 +26,6 @@ class Checkbox extends Component
 
     public function render()
     {
-        return view('crudify::checkbox');
+        return view('canvas::checkbox');
     }
 }

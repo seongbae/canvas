@@ -36,6 +36,7 @@ At this point, if you go to the site at http://blog_url, you will see the Canvas
 
 * [Laravel 7](https://www.laravel.com) - The web framework used
 * [AdminLTE](https://adminlte.io/) - Admin Dashboard
+* [Crudify](https://github.com/kejojedi/crudify) - CRUD generation
 
 ## Contributing
 

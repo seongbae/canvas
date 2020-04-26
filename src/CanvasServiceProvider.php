@@ -9,8 +9,16 @@ use Illuminate\Support\Facades\Log;
 use Schema;
 use Seongbae\Canvas\Console\Commands\CanvasInstallCommand;
 use Seongbae\Canvas\Console\Commands\CacheClearCommand;
+use Seongbae\Canvas\Console\Commands\GeneratesCrud;
 use Spatie\Permission\Commands\CacheReset;
 use DB;
+use Seongbae\Canvas\Components\Checkbox;
+use Seongbae\Canvas\Components\Checkboxes;
+use Seongbae\Canvas\Components\File;
+use Seongbae\Canvas\Components\Input;
+use Seongbae\Canvas\Components\Radios;
+use Seongbae\Canvas\Components\Select;
+use Seongbae\Canvas\Components\Textarea;
 
 class CanvasServiceProvider extends ServiceProvider
 {
@@ -63,6 +71,7 @@ class CanvasServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->commands(CanvasInstallCommand::class);
+            $this->commands(GeneratesCrud::class);
         }
 
         $pdo = DB::connection()->getPdo();
@@ -110,5 +119,15 @@ class CanvasServiceProvider extends ServiceProvider
             // config(["view.paths" => $paths ]);
 
         }
+
+        $this->loadViewComponentsAs('crudify', [
+            Checkbox::class,
+            Checkboxes::class,
+            File::class,
+            Input::class,
+            Radios::class,
+            Select::class,
+            Textarea::class,
+        ]);
     }
 }

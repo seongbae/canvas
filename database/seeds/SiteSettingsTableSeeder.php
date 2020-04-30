@@ -66,6 +66,10 @@ class SiteSettingsTableSeeder extends Seeder
             [
                 'key'   =>  'business_address',
                 'value' =>  '123 Sesame St'
+            ],
+            [
+                'key'   =>  'default_role',
+                'value' =>  '3'
             ]
         ]);
     }

@@ -59,6 +59,19 @@
 				</div>
 			</div>
 			<hr>
+			<h5 class="mt-4 mb-2">Users</h5>
+			<div class="form-group row">
+				<label for="site_name" class="col-sm-2 col-form-label">Default role</label>
+				<div class="col-sm-10">
+					<select name="default_role" class="form-control">
+						<option></option>
+						@foreach($roles as $role)
+						<option value="{{$role->id}}" {{ option('default_role') == $role->id ? "selected":"11"}}>{{$role->name}}</option>
+						@endforeach
+					</select>
+				</div>
+			</div>
+			<hr>
 			<h5 class="mt-4 mb-2">Business Information</h5>
 			<div class="form-group row">
 				<label for="business_name" class="col-sm-2 col-form-label">Business Name</label>

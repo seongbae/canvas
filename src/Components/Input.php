@@ -14,7 +14,7 @@ class Input extends Component
     public $value;
     public $readonly;
 
-    public function __construct($name, $type = 'text', $label = null, $id = null, $value = null, $hint = null, $disabled = false, $readonly = false)
+    public function __construct($name, $type = 'text', $label = null, $id = null, $value = null, $hint = null, $disabled = false, $readonly = false, $autofocus=false)
     {
         $this->name = $name;
         $this->type = $type;
@@ -24,6 +24,7 @@ class Input extends Component
         $this->hint = $hint;
         $this->disabled = $disabled;
         $this->readonly = $readonly;
+        $this->autofocus = $autofocus;
     }
 
     public function render()

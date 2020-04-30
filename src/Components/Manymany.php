@@ -16,7 +16,7 @@ class Manymany extends Component
     public $empty;
     public $deleteLink;
 
-    public function __construct($name, $options, $empty = true, $label = null, $id = null, $value = null, $hint = null, $disabled = false, $deleteLink = null, $hideOnEdit = false, $hideOnCreate = false)
+    public function __construct($name, $options, $empty = true, $label = null, $id = null, $value = null, $hint = null, $disabled = false, $deleteLink = null)
     {
         $this->name = $name;
         $this->options = $this->formatOptions($options);

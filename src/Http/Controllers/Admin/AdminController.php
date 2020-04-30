@@ -101,7 +101,8 @@ class AdminController extends CanvasController
         return view('canvas::admin.settings')
                 ->with('modules', $modules)
                 ->with('enabledModules', $enabledModules)
-                ->with('moduleOptionGroups', $moduleOptionGroups);
+                ->with('moduleOptionGroups', $moduleOptionGroups)
+                ->with('roles', Role::all());
     }
 
     public function saveSettings(Request $request)
@@ -112,6 +113,7 @@ class AdminController extends CanvasController
         option(['from_email' => $request->get('from_email') ? $request->get('from_email') : '' ]);
         option(['notification_email' => $request->get('notification_email') ? $request->get('notification_email') : '' ]);
         option(['google_analytics_id' => $request->get('google_analytics_id') ? $request->get('google_analytics_id') : '' ]);
+        option(['default_role' => $request->get('default_role') ? $request->get('default_role') : '' ]);
 
 
         $modulesArray = json_decode(option('modules'), true);

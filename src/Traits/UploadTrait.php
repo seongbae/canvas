@@ -13,6 +13,9 @@ trait UploadTrait
 {
     public function uploadOne(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null)
     {
+        // if ($folder && !File::isDirectory(storage_path($folder)))
+        //     File::makeDirectory(storage_path($folder), 0777, true, true);
+
         $name = !is_null($filename) ? $filename : Str::random(25);
 
         $file = $uploadedFile->storeAs($folder, $name.'.'.$uploadedFile->getClientOriginalExtension(), $disk);

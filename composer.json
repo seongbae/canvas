@@ -26,7 +26,8 @@
         "yajra/laravel-datatables-oracle": "~9.0",
         "intervention/image": "^2.4@dev",
         "laravel/ui": "^2.0",
-        "barryvdh/laravel-ide-helper": "^2.6@dev"
+        "barryvdh/laravel-ide-helper": "^2.6@dev",
+        "laravelista/comments": "dev-master"
     },
     "autoload": {
         "psr-4": {

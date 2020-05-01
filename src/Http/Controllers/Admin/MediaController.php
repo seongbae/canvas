@@ -73,7 +73,7 @@ class MediaController extends CanvasController
             // Upload image
             $this->uploadOne($file, $folder, 'public', $name);
             // Set user profile image path in database to filePath
-            $media->path = $filePath;
+            $media->path = $name. '.' . $file->getClientOriginalExtension();
         }
 
         $media->type = 'image';
@@ -138,7 +138,7 @@ class MediaController extends CanvasController
             // Upload image
             $this->uploadOne($file, $folder, 'public', $name);
             // Set user profile image path in database to filePath
-            $media->path = $filePath;
+            $media->path = $name. '.' . $file->getClientOriginalExtension();
         }
 
         if ($request->get('tags')) {

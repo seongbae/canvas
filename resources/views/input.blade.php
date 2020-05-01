@@ -8,7 +8,9 @@
                    class="form-control @error($name) is-invalid @enderror"
                    value="{{ $value }}"
                    {{ $disabled ? 'disabled' : '' }}
-                   {{ $readonly ? 'readonly' : '' }}>
+                   {{ $readonly ? 'readonly' : '' }}
+                   {{ $autofocus ? 'autofocus': '' }}
+                   >
             @error($name) <span class="invalid-feedback font-weight-bold">{{ $message }}</span> @enderror
             @if($hint) <small class="form-text text-secondary">{{ $hint }}</small> @endif
         </div>

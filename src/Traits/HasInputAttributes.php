@@ -9,4 +9,5 @@ trait HasInputAttributes
     public $id;
     public $hint;
     public $disabled;
+    public $autofocus;
 }

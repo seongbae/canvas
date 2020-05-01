@@ -15,7 +15,7 @@
     <label for="file_url" class="col-sm-2 col-form-label">Image</label>
     <div class="col-sm-10">
         @if ($media)
-          <img src="{{$media->path}}" style="width:200px;">
+          <img src="/storage/media/{{$media->path}}" style="width:200px;">
         @endif
        <input id="profile_image" type="file" class="form-control" name="file_url">
         

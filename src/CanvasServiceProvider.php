@@ -79,7 +79,7 @@ class CanvasServiceProvider extends ServiceProvider
 
         // Do not run below using initial installation when DB is not available   
         if (file_exists(base_path('.env')))// 
-            
+        {
             $pdo = DB::connection()->getPdo();
 
             if ($pdo && Schema::hasTable('options'))

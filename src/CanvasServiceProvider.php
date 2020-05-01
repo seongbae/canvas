@@ -19,7 +19,7 @@ use Seongbae\Canvas\Components\Input;
 use Seongbae\Canvas\Components\Radios;
 use Seongbae\Canvas\Components\Select;
 use Seongbae\Canvas\Components\Textarea;
-use Seongbae\Canvas\Components\Manymany;
+use Spatie\Flash\Flash;
 
 class CanvasServiceProvider extends ServiceProvider
 {
@@ -30,7 +30,7 @@ class CanvasServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        
     }
 
     /**
@@ -75,11 +75,10 @@ class CanvasServiceProvider extends ServiceProvider
             $this->commands(GeneratesCrud::class);
         }
 
-        
-        $pdo = DB::connection()->getPdo();
+        //$pdo = DB::connection()->getPdo();
 
         // Do not run below using initial installation when DB is not available   
-        if ($pdo && Schema::hasTable('options'))
+        if (file_exists(base_path('.env')))// ($pdo && Schema::hasTable('options'))
         {
             // Set config values from database
             config(['mail.from.name' => option('from_name')]);
@@ -130,10 +129,9 @@ class CanvasServiceProvider extends ServiceProvider
             Radios::class,
             Select::class,
             Textarea::class,
-            Manymany::class
         ]);
 
-        \Spatie\Flash\Flash::levels([
+         Flash::levels([
             'success' => 'alert-success',
             'warning' => 'alert-warning',
             'error' => 'alert-error',

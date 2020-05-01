@@ -84,7 +84,7 @@ if (! function_exists('slugify')) {
     }
 }
 
-if (! function_exists('formatDate')) {
+if (! function_exists('format_date')) {
     function format_date($d, $format=null) 
     {
         $date=date_create($d);

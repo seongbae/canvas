@@ -70,6 +70,10 @@ class SiteSettingsTableSeeder extends Seeder
             [
                 'key'   =>  'default_role',
                 'value' =>  '3'
+            ],
+            [
+                'key'   =>  'resource_rename',
+                'value' =>  '[]'
             ]
         ]);
     }

@@ -75,6 +75,7 @@ class CanvasServiceProvider extends ServiceProvider
             $this->commands(GeneratesCrud::class);
         }
 
+        
         $pdo = DB::connection()->getPdo();
 
         // Do not run below using initial installation when DB is not available   
@@ -130,6 +131,12 @@ class CanvasServiceProvider extends ServiceProvider
             Select::class,
             Textarea::class,
             Manymany::class
+        ]);
+
+        \Spatie\Flash\Flash::levels([
+            'success' => 'alert-success',
+            'warning' => 'alert-warning',
+            'error' => 'alert-error',
         ]);
     }
 }

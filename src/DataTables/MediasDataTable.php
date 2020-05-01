@@ -30,7 +30,7 @@ class MediasDataTable extends DataTable
                           </form>';
             })
             ->addColumn('img', function($row) {
-                return '<img src="'. $row->path .'" class="img-fluid" style="width:80px;">';
+                return '<img src="/storage/media/'. $row->path .'" class="img-fluid" style="width:80px;">';
             })
             ->escapeColumns([]);
     }

@@ -58,7 +58,7 @@ class PageController extends CanvasController
         if (!$page)
             abort(404);
 
-        return view('page')
+        return view('canvas::frontend.page')
             ->with('page', $page)
             ->with('title', $page->meta_title)
             ->with('description', $page->meta_description);

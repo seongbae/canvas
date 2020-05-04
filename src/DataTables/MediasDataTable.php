@@ -58,7 +58,7 @@ class MediasDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
-                    ->orderBy(1)
+                    ->orderBy(2,'desc')
                     ->buttons(
                         Button::make('create')
                     );

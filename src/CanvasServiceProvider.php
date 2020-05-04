@@ -19,6 +19,7 @@ use Seongbae\Canvas\Components\Input;
 use Seongbae\Canvas\Components\Radios;
 use Seongbae\Canvas\Components\Select;
 use Seongbae\Canvas\Components\Textarea;
+use Seongbae\Canvas\Components\Manymany;
 use Spatie\Flash\Flash;
 
 class CanvasServiceProvider extends ServiceProvider
@@ -134,6 +135,7 @@ class CanvasServiceProvider extends ServiceProvider
             Radios::class,
             Select::class,
             Textarea::class,
+            Manymany::class
         ]);
 
          Flash::levels([

@@ -54,7 +54,7 @@ class UserCreatedNotification extends Notification
             $mailMsg->line('Password: ' . $this->args['password']);
 
         $mailMsg->action('Go to my account', url('/login'));
-        $mailMsg->markdown('emails.email');
+        $mailMsg->markdown('canvas::emails.email');
 
         return $mailMsg;
     }

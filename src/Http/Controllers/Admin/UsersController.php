@@ -13,11 +13,11 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Alert;
 use Seongbae\Canvas\DataTables\UsersDataTable;
-
 use Seongbae\Canvas\Http\Controllers\CanvasController;
 use File;
 use Storage;
 use Seongbae\Canvas\Traits\UploadTrait;
+use Seongbae\Canvas\Events\NewUserCreated;
 
 class UsersController extends CanvasController
 {
@@ -98,7 +98,7 @@ class UsersController extends CanvasController
             if ($request->get('include_password'))
                 $args = array('password'=>$request->get('password'));
 
-            event(new \App\Events\NewUserCreated($user, $args));
+            event(new NewUserCreated($user, $args));
         }
 
         flash()->success('User successfully created', 'Success');

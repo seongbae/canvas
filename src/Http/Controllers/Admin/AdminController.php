@@ -17,6 +17,7 @@ use Spatie\Permission\Exceptions\PermissionAlreadyExists;
 use Spatie\Permission\Exceptions\PermissionDoesNotExist;
 use App\Helpers\AdminHelper;
 use Seongbae\Canvas\Http\Controllers\CanvasController;
+use Camroncade\Timezone\Facades\Timezone;
 
 class AdminController extends CanvasController
 {
@@ -301,8 +302,13 @@ class AdminController extends CanvasController
     {
         $user = Auth::user();
 
-        return view('canvas::admin.account')->with('user', $user);
-    
+        $timezone_select = Timezone::selectForm(
+            $user->timezone ? $user->timezone : 'US/Central', 
+            '', 
+            ['class' => 'form-control', 'name' => 'timezone']
+        );
+
+        return view('canvas::admin.account', compact('user','timezone_select'));    
     }
 
 }

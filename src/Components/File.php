@@ -12,6 +12,7 @@ class File extends Component
 
     public $file_label;
     public $multiple;
+    public $value;
 
     public function __construct($name, $label = null, $fileLabel = null, $id = null, $multiple = false, $hint = null, $disabled = false, $value = null, $path = null)
     {

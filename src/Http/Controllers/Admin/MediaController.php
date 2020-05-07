@@ -82,6 +82,8 @@ class MediaController extends CanvasController
 
         if ($request->get('tags')) {
             $media->syncTags(explode(",", $request->get('tags')));
+        } else {
+            $media->syncTags([]);
         }
 
         
@@ -143,6 +145,8 @@ class MediaController extends CanvasController
 
         if ($request->get('tags')) {
             $media->syncTags(explode(",", $request->get('tags')));
+        } else {
+            $media->syncTags([]);
         }
         
         $media->save();

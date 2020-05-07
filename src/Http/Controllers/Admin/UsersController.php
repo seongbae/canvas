@@ -84,6 +84,9 @@ class UsersController extends CanvasController
 
         if ($request->file('file'))
             $user->photo_url = $this->saveUserImage($request->file('file'), 'users');
+
+        if ($request->get('timezone'))
+            $user->timezone = $request->get('timezone');
         
         $user->save();
 
@@ -138,6 +141,9 @@ class UsersController extends CanvasController
 
         if ($request->get('role'))
             $user->syncRoles($request->get('role'));
+
+        if ($request->get('timezone'))
+            $user->timezone = $request->get('timezone');
         
         if ($request->file('file'))
             $user->photo_url = $this->saveUserImage($request->file('file'), 'users');

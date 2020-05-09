@@ -29,7 +29,7 @@
                             <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Confirm Password">
                         </div>
                         <div class="form-group">
-                            <img src="{{$user->photo_url}}" style="width:80px;">
+                            <img src="/storage/{{$user->photo_url}}" style="width:80px;">
                             <input type="file" class="form-control-file" id="file" name="file">
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Save</button>

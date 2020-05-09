@@ -83,7 +83,7 @@ class UsersController extends CanvasController
         $user->password = Hash::make($request->get('password'));
 
         if ($request->file('file'))
-            $user->photo_url = $this->saveUserImage($request->file('file'), 'users');
+            $user->photo_url = $this->uploadOne($request->file('file'), 'users', 'public');
 
         if ($request->get('timezone'))
             $user->timezone = $request->get('timezone');
@@ -146,7 +146,7 @@ class UsersController extends CanvasController
             $user->timezone = $request->get('timezone');
         
         if ($request->file('file'))
-            $user->photo_url = $this->saveUserImage($request->file('file'), 'users');
+            $user->photo_url = $this->uploadOne($request->file('file'), 'users', 'public');
         
         $user->save();
 

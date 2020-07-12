@@ -22,6 +22,12 @@ Install Canvas via Composer:
 composer require seongbae/canvas
 ```
 
+Create a database and run migration:
+
+```
+php artisan migrate
+```
+
 Run the Canvas installer:
 
 ```

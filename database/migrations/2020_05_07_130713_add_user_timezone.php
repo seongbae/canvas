@@ -14,7 +14,7 @@ class AddUserTimezone extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('timezone')->efault('US/Central');
+            $table->string('timezone')->default('US/Central');
         });
     }
 

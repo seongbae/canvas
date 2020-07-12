@@ -76,56 +76,32 @@ class CanvasServiceProvider extends ServiceProvider
             $this->commands(GeneratesCrud::class);
         }
 
-        //
+        // Set config values from database
+        // config(['mail.from.name' => option('from_name')]);
+        // config(['mail.from.address' => option('from_email')]);
 
-        // Do not run below using initial installation when DB is not available   
-        if (file_exists(base_path('.env')))// 
-        {
-            $pdo = DB::connection()->getPdo();
+        $moduleMenus = array();
 
-            if ($pdo && Schema::hasTable('options'))
-            {
-                // Set config values from database
-                config(['mail.from.name' => option('from_name')]);
-                config(['mail.from.address' => option('from_email')]);
+        if(is_dir(app_path('Modules'))) {
+            $cdir = scandir(app_path('Modules'));
 
-                $modulesArray = json_decode(option('modules'), true);
-                $moduleMenus = array();
-                if ($modulesArray != null)
-                {
-                    foreach ($modulesArray as $module=>$value)
-                    {
-                        if ($value == 2) // 0 = uninstalled, 1 = installed but not active, 2 = installed and active
-                        {
-                            app('config')->set('custom', require app_path('Modules/'.$module.'/module.php'));
-
-                            \App::register('App\Modules\\'.$module.'\\'.config('custom.service_provider'));
-
-                            $moduleMenus[] = config('custom.admin_menus');
-                        }
+            foreach ($cdir as $key => $value) {
+                if (!in_array($value, array(".", ".."))) {
+                    if (is_dir(app_path('Modules') . DIRECTORY_SEPARATOR . $value)) {
+                        app('config')->set('custom', require app_path('Modules/' . $value . '/module.php'));
+                        \App::register('App\Modules\\' . $value . '\\' . config('custom.service_provider'));
+                        $moduleMenus[] = config('custom.admin_menus');
                     }
                 }
-
-                view()->composer('*', function ($view) use($moduleMenus) {
-                    $view->with('moduleMenus',  $moduleMenus);
-                });
-
-                // for loading page routes dynamically
-                \App::register('Seongbae\Canvas\Providers\PageServiceProvider');
-
-                // Disable theme support for now
-                // $theme = option('theme');
-
-                // view()->composer('*', function ($view) use($theme) {
-                //     $view->with('theme',  $theme);
-                // });
-
-                // $paths = config('view.paths');
-                // array_unshift($paths, resource_path('views/themes/'.$theme));
-                // config(["view.paths" => $paths ]);
             }
-
         }
+
+        view()->composer('*', function ($view) use ($moduleMenus) {
+            $view->with('moduleMenus', $moduleMenus);
+        });
+
+        // for loading page routes dynamically
+        \App::register('Seongbae\Canvas\Providers\PageServiceProvider');
 
         $this->loadViewComponentsAs('canvas', [
             Checkbox::class,

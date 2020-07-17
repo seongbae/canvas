@@ -31,6 +31,6 @@ class Manymany extends Component
 
     public function render()
     {
-        return view('canvas::manymany');
+        return view('canvas::fields.manymany');
     }
 }

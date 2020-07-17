@@ -28,6 +28,6 @@ class Textarea extends Component
 
     public function render()
     {
-        return view('canvas::textarea');
+        return view('canvas::fields.textarea');
     }
 }

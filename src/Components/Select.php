@@ -29,6 +29,6 @@ class Select extends Component
 
     public function render()
     {
-        return view('canvas::select');
+        return view('canvas::fields.select');
     }
 }

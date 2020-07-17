@@ -36,8 +36,45 @@ php artisan canvas:install
 
 The installer runs the migrations, creates storage symlink, publishes package files, and seed the database with initial data.
 
-At this point, if you go to the site at http://blog_url, you will see the Canvas landing page. You can access the backend by going to /login and using admin@admin.com as login and password as password.
+At this point, visit your app URL and log in with:
+ 
+ ```
+Username: admin@admin.com
+Password: password
+ ```
 
+Optionally, you can publish vendor files:
+
+```
+php artisan vendor:publish --provider "Seongbae\Canvas\CanvasServiceProvider"
+```
+
+## Generating CRUD 
+
+Below command and syntax is taken from the Crudify project. 
+
+Run `canvas:generate` for a new model:
+
+    php artisan canvas:generate Model
+    
+This will generate:
+
+- Controller
+- Datatable
+- Form Request
+- Model
+- Factory
+- Migration
+- Seeder
+- View Files
+- Navbar Link
+- Routes
+
+Don't forget to migrate after updating the new migration file.  
+
+**Tip: use the `--force` in order to replace existing generated files e.g. `php artisan canvas:generate Model --force`**
+**Tip: use the `--admin` to have a menu item created in the backend.**
+ 
 ## Built With
 
 * [Laravel 7](https://www.laravel.com) - The web framework used

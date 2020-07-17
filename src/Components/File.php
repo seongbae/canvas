@@ -28,6 +28,6 @@ class File extends Component
 
     public function render()
     {
-        return view('canvas::file');
+        return view('canvas::fields.file');
     }
 }

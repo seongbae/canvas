@@ -26,6 +26,6 @@ class Checkbox extends Component
 
     public function render()
     {
-        return view('canvas::checkbox');
+        return view('canvas::fields.checkbox');
     }
 }

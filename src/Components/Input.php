@@ -29,6 +29,6 @@ class Input extends Component
 
     public function render()
     {
-        return view('canvas::input');
+        return view('canvas::fields.input');
     }
 }

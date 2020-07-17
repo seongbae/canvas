@@ -27,6 +27,6 @@ class Radios extends Component
 
     public function render()
     {
-        return view('canvas::radios');
+        return view('canvas::fields.radios');
     }
 }

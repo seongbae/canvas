@@ -82,6 +82,11 @@ class UsersController extends CanvasController
         $user->email =$request->get('email');
         $user->password = Hash::make($request->get('password'));
 
+        if ($request->get('timezone'))
+            $user->timezone = $request->get('timezone');
+        else
+            $user->timezone = 'US/Central'; // set default timezone
+
         if ($request->file('file'))
             $user->photo_url = $this->uploadOne($request->file('file'), 'users', 'public');
 

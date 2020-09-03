@@ -12,14 +12,16 @@ class Checkbox extends Component
 
     public $checkbox_label;
     public $value;
+    public $checked;
 
-    public function __construct($name, $label = null, $checkboxLabel = null, $id = null, $value = null, $hint = null, $disabled = false)
+    public function __construct($name, $label = null, $checkboxLabel = null, $id = null, $value = null, $checked = null, $hint = null, $disabled = false)
     {
         $this->name = $name;
         $this->label = $label;
         $this->checkbox_label = $checkboxLabel ?? Str::title(str_replace('_', ' ', $name));
         $this->id = $id ?? $name;
         $this->value = $value;
+        $this->checked = $checked;
         $this->hint = $hint;
         $this->disabled = $disabled;
     }

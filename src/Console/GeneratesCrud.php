@@ -76,10 +76,18 @@ class GeneratesCrud extends Command
 
     private function createViewFiles()
     {
-        $view_path = resource_path('views/' . $this->replaces['DummyVars']);
+        $viewType = "frontend";
+
+        if ($this->option('admin'))
+        {
+            $viewType = "admin";
+        }
+
+        $view_path = resource_path('views/'.$viewType.'/' . $this->replaces['DummyVars']);
+
         File::ensureDirectoryExists($view_path);
 
-        foreach (File::allFiles(__DIR__ . '/../../resources/stubs/generate/views') as $stub) {
+        foreach (File::allFiles(__DIR__ . '/../../resources/stubs/generate/views/'.$viewType) as $stub) {
             $stub_contents = $this->replace($stub->getContents());
             $new_file = $view_path . '/' . str_replace('.stub', '.blade.php', $stub->getBasename());
 

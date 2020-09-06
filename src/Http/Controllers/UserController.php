@@ -6,9 +6,13 @@ use App\User;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\URL;
+use Seongbae\Canvas\Traits\UploadTrait;
 
 class UserController extends CanvasController
 {
+    use UploadTrait;
+    
     /**
      * Create a new controller instance.
      *
@@ -35,6 +39,12 @@ class UserController extends CanvasController
         $user->name = $request->get('name');
         $user->email = $request->get('email');
         $user->save();
+
+        if ($request->file('file'))
+        {
+            $user->photo_url = URL::to("/storage/".$this->uploadOne($request->file('file'), 'users', 'public'));
+            $user->save();
+        }
 
         return redirect()->back();
     }

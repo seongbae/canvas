@@ -34,6 +34,12 @@ Run the Canvas installer:
 php artisan canvas:install
 ```
 
+Link storage folder:
+
+```
+php artisan storage:link
+```
+
 The installer runs the migrations, creates storage symlink, publishes package files, and seed the database with initial data.
 
 At this point, visit your app URL and log in with:
@@ -75,6 +81,13 @@ Don't forget to migrate after updating the new migration file.
 **Tip: use the `--force` in order to replace existing generated files e.g. `php artisan canvas:generate Model --force`**
 **Tip: use the `--admin` to have a menu item created in the backend.**
  
+## To Do
+
+* E-mail verification - new user registration and when users change their email
+* SEO Support - generate sitemap, meta data update
+* REST API support - include API resource when generating a new model
+* Translation
+
 ## Built With
 
 * [Laravel 7](https://www.laravel.com) - The web framework used

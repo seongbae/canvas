@@ -12,7 +12,7 @@ use Seongbae\Canvas\Traits\UploadTrait;
 class UserController extends CanvasController
 {
     use UploadTrait;
-    
+
     /**
      * Create a new controller instance.
      *
@@ -21,8 +21,6 @@ class UserController extends CanvasController
     public function __construct()
     {
         $this->middleware('auth');
-
-        // $this->middleware('access.admin');
     } 
     
     public function getUser()

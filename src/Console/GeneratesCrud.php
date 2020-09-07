@@ -1,6 +1,6 @@
 <?php
 
-namespace Seongbae\Canvas\Console\Commands;
+namespace Seongbae\Canvas\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;

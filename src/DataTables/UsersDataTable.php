@@ -26,10 +26,16 @@ class UsersDataTable extends DataTable
             //          $query->orderBy('id', $order);
             //      });
             ->addColumn('user_image', function($row) {
-                return '<img src="'. $row->photo .'" style="width:40px;" class="rounded-circle">';
+                return '<a href="'.route('admin.users.edit', $row->id).'"><img src="'. $row->photo .'" style="width:40px;" class="rounded-circle"></a>';
+            })
+            ->editColumn('name', function($row) {
+                return '<a href="'.route('admin.users.edit', $row->id).'">'.$row->name.'</a>';
+            })
+            ->editColumn('created_at', function($row) {
+                return $row->created_at->format('Y-m-d');
             })
             ->addColumn('action', function($row) {
-                return '<a href="'.route('admin.users.edit', $row->id).'" class="btn btn-primary">Edit</a><form action="'.route('admin.users.destroy', $row->id).'" method="POST" class="d-inline">
+                return '<a href="'.route('admin.users.edit', $row->id).'" class="btn btn-link text-secondary p-1"><i class="far fa-edit "></i></a><form action="'.route('admin.users.destroy', $row->id).'" method="POST" class="d-inline">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="submit" name="submit" value="Remove" class="btn btn-danger " onClick="return confirm(\'Are you sure?\')">
                             '.csrf_field().'

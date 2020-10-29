@@ -102,6 +102,7 @@ class CanvasServiceProvider extends ServiceProvider
 
         // for loading page routes dynamically
         \App::register('Seongbae\Canvas\Providers\PageServiceProvider');
+        \App::register('Camroncade\Timezone\TimezoneServiceProvider');
 
         $this->loadViewComponentsAs('canvas', [
             Checkbox::class,

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Log;
 use Debugbar;
 use Cache;
 use Auth;
-use App\User;
+use App\Models\User;
 use Yajra\Datatables\Datatables;
 use Spatie\Permission\Models\Role;
 use Seongbae\Canvas\DataTables\RolesDataTable;

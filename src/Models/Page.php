@@ -3,7 +3,7 @@
 namespace Seongbae\Canvas\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
+use App\Models\User;
 
 class Page extends Model
 {

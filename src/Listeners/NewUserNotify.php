@@ -4,7 +4,7 @@ namespace Seongbae\Canvas\Listeners;
 
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\User;
+use App\Models\User;
 use Seongbae\Canvas\Notifications\UserCreatedNotification;
 
 class NewUserNotify

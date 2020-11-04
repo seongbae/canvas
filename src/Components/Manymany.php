@@ -15,8 +15,9 @@ class Manymany extends Component
     public $value;
     public $empty;
     public $deleteLink;
+    public $additionalFields;
 
-    public function __construct($name, $options, $empty = true, $label = null, $id = null, $value = null, $hint = null, $disabled = false, $deleteLink = null)
+    public function __construct($name, $options, $empty = true, $label = null, $id = null, $value = null, $hint = null, $disabled = false, $deleteLink = null, $additionalFields=null)
     {
         $this->name = $name;
         $this->options = $this->formatOptions($options);
@@ -27,10 +28,11 @@ class Manymany extends Component
         $this->hint = $hint;
         $this->disabled = $disabled;
         $this->deleteLink = $deleteLink;
+        $this->additionalFields = $additionalFields;
     }
 
     public function render()
     {
-        return view('canvas::fields.manymany');
+        return view('canvas::manymany');
     }
 }

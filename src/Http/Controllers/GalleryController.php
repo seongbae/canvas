@@ -3,7 +3,7 @@
 namespace Seongbae\Canvas\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Media;
+use App\Models\Media;
 
 class GalleryController extends CanvasController
 {

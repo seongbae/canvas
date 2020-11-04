@@ -39,11 +39,15 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <img src="{{$user->photo_url}}" style="width:80px;">
+                            <label for="timezone">Timezone</label>
+                            {!! Timezone::selectForm($user->timezone, null, ['name'=>'timezone','class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            <img src="{{$user->photo}}" style="width:80px;" class="img-circle elevation-2">
                             <input type="file" class="form-control-file" id="file" name="file">
                         </div>
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <a href="{{ URL::previous() }}" class="btn btn-dark  mr-2">Cancel</a>
+                        <button type="submit" class="btn btn-primary mr-2">Save</button>
+                        <a href="{{ URL::previous() }}" class="btn btn-default  mr-2">Cancel</a>
                         
                     </form>
                     <form action="/admin/users/{{$user->id}}" method="POST" style="display:inline;">

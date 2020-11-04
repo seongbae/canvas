@@ -8,7 +8,7 @@ use Debugbar;
 use Cache;
 use Auth;
 use Yajra\Datatables\Datatables;
-use App\User;
+use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Alert;

@@ -25,8 +25,8 @@
                             </div>
                             @endforeach
                         </div>
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <a href="{{ URL::previous() }}" class="btn btn-dark mr-2">Cancel</a>
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <a href="{{ URL::previous() }}" class="btn btn-default mr-2">Cancel</a>
                     </form>
                 </div>
             </div>

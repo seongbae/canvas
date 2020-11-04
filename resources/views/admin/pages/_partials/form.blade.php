@@ -45,8 +45,8 @@
                                 </select>
                             </div>
                             
-                            <button type="submit" class="btn btn-success mr-2">Save</button>
-                            <a href="{{ URL::previous() }}" class="btn btn-dark">Cancel</a>
+                            <button type="submit" class="btn btn-primary mr-2">Save</button>
+                            <a href="{{ URL::previous() }}" class="btn btn-default">Cancel</a>
                             @if (isset($page))
                             <button type="button" class="btn btn-danger ml-2" onclick="return deletePage();">Delete</button>
                             @endif

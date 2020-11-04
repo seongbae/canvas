@@ -50,10 +50,11 @@ class CanvasServiceProvider extends ServiceProvider
         $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/RegisterController.stub' => app_path('Http/Controllers/Auth/RegisterController.php')], 'canvas-install');
         $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/ResetPasswordController.stub' => app_path('Http/Controllers/Auth/ResetPasswordController.php')], 'canvas-install');
         $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/VerificationController.stub' => app_path('Http/Controllers/Auth/VerificationController.php')], 'canvas-install');
+        $this->publishes([__DIR__ . '/../resources/stubs/controllers/WelcomeController.stub' => app_path('Http/Controllers/WelcomeController.php')], 'canvas-install');
         $this->publishes([__DIR__ . '/../resources/stubs/controllers/HomeController.stub' => app_path('Http/Controllers/HomeController.php')], 'canvas-install');
-        
+
         // Model stubs
-        $this->publishes([__DIR__ . '/../resources/stubs/models/User.stub' => app_path('User.php')], 'canvas-install');
+        $this->publishes([__DIR__ . '/../resources/stubs/models/User.stub' => app_path('/Models/User.php')], 'canvas-install');
 
         // View stubs
         $this->publishes([__DIR__ . '/../resources/views' => resource_path('views/vendor/canvas')], ['canvas-views']);

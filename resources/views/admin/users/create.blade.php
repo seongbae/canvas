@@ -49,8 +49,8 @@
                                 <label class="custom-control-label" for="include_password">Include password</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <a href="{{ URL::previous() }}" class="btn btn-dark">Cancel</a>
+                        <button type="submit" class="btn btn-primary mr-2">Save</button>
+                        <a href="{{ URL::previous() }}" class="btn btn-default">Cancel</a>
                     </form>
                 </div>
             </div>

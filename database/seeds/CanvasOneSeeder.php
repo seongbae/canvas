@@ -12,11 +12,11 @@ class CanvasOneSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
-        $this->call(RolesTableSeeder::class);
-        $this->call(PermissionsTableSeeder::class);
-        $this->call(RolePermissionTableSeeder::class);
-        $this->call(UserRoleTableSeeder::class);
-        $this->call(SiteSettingsTableSeeder::class);
+//        $this->call(UsersTableSeeder::class);
+//        $this->call(RolesTableSeeder::class);
+//        $this->call(PermissionsTableSeeder::class);
+//        $this->call(RolePermissionTableSeeder::class);
+//        $this->call(UserRoleTableSeeder::class);
+//        $this->call(SiteSettingsTableSeeder::class);
     }
 }

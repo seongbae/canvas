@@ -40,9 +40,11 @@ class RolesDataTable extends DataTable
                     return $permissions;
                 })
             ->addColumn('action', function($role) {
-                return '<a href="/admin/users/roles/'. $role->id .'/edit" class="btn btn-primary">Edit</a><form action="'.route('admin.roles.destroy', $role->id).'" method="POST" class="d-inline">
+                return '<a href="/admin/users/roles/'. $role->id .'/edit" class="btn btn-link text-secondary p-1"><i class="far fa-edit "></i></a><form action="'.route('admin.roles.destroy', $role->id).'" method="POST" class="d-inline">
                             <input type="hidden" name="_method" value="DELETE">
-                            <input type="submit" name="submit" value="Remove" class="btn btn-danger " onClick="return confirm(\'Are you sure?\')">
+                            <button type="submit" class="btn btn-link text-secondary p-1"  onClick="return confirm(\'Are you sure?\')">
+                            <i class="far fa-trash-alt"></i>
+                            </button>
                             '.csrf_field().'
                           </form>';
             })

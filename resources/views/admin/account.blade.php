@@ -29,11 +29,15 @@
                             <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Confirm Password">
                         </div>
                         <div class="form-group">
-                            <img src="/storage/{{$user->photo_url}}" style="width:80px;">
+                            <label for="timezone">Timezone</label>
+                            {!! Timezone::selectForm($user->timezone, null, ['name'=>'timezone','class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            <img src="{{$user->photo}}" style="width:80px;" class="img-circle elevation-2">
                             <input type="file" class="form-control-file" id="file" name="file">
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Save</button>
-                        <a href="{{ URL::previous() }}" class="btn btn-dark  mr-2">Cancel</a>
+                        <a href="{{ URL::previous() }}" class="btn btn-default  mr-2">Cancel</a>
                         
                     </form>
                 </div>

@@ -39,7 +39,7 @@ class CanvasInstallCommand extends Command
         $this->info('Publishing files...');
 
         Artisan::call('vendor:publish', [
-            '--tag' => 'canvas-install', '--force' => true
+            '--provider' => 'Seongbae\Canvas\CanvasServiceProvider', '--force' => true
         ]);
 
         $this->info('Publish files complete.');
@@ -198,7 +198,7 @@ class CanvasInstallCommand extends Command
         DB::table('model_has_roles')->insert([
             [
                 'role_id'       => 1,
-                'model_type'    => 'App\User',
+                'model_type'    => 'App\Models\User',
                 'model_id'       => 1
             ]            
         ]);
@@ -213,23 +213,23 @@ class CanvasInstallCommand extends Command
             ],
             [
                 'key'   =>  'site_name',
-                'value' =>  'Canvas'
+                'value' =>  '"Canvas"'
             ],
             [
                 'key'   =>  'site_description',
-                'value' =>  'Canvas is an open source CMS starter kit built with Laravel. It provides a starting point for building an advanced website or your own content management system.'
+                'value' =>  '"Canvas is an admin panel for Laravel applications."'
             ],
             [
                 'key'   =>  'from_name',
-                'value' =>  'Canvas Admin'
+                'value' =>  '"Canvas Admin"'
             ],
             [
                 'key'   =>  'from_email',
-                'value' =>  'admin@admin.com'
+                'value' =>  '"admin@admin.com"'
             ],
             [
                 'key'   =>  'notification_email',
-                'value' =>  'noreply@email.com'
+                'value' =>  '"noreply@email.com"'
             ],
             [
                 'key'   =>  'maintenance_mode',
@@ -245,19 +245,19 @@ class CanvasInstallCommand extends Command
             ],
             [
                 'key'   =>  'business_name',
-                'value' =>  'ACME, Inc.'
+                'value' =>  '"ACME, Inc."'
             ],
             [
                 'key'   =>  'business_email',
-                'value' =>  ''
+                'value' =>  '"myemail@business.com"'
             ],
             [
                 'key'   =>  'business_phone',
-                'value' =>  '123-456-7890'
+                'value' =>  '"123-456-7890"'
             ],
             [
                 'key'   =>  'business_address',
-                'value' =>  '123 Sesame St'
+                'value' =>  '"123 Sesame St"'
             ]
         ]);
     }

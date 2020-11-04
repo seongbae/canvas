@@ -34,16 +34,16 @@
                             </div>
                             @endforeach
                         </div>
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <a href="{{ URL::previous() }}" class="btn btn-dark mr-2">Cancel</a>
+                        <button type="submit" class="btn btn-primary mr-2">Save</button>
+                        <a href="{{ URL::previous() }}" class="btn btn-default mr-2">Cancel</a>
                     </form>
-                    @if ($role->name != 'Administrator')
-                    <form action="/admin/roles/{{$role->id}}" method="POST" style="display:inline;">
-                        {{ csrf_field() }}
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</button>
-                    </form>
-                    @endif
+{{--                    @if ($role->name != 'Administrator')--}}
+{{--                    <form action="/admin/roles/{{$role->id}}" method="POST" style="display:inline;">--}}
+{{--                        {{ csrf_field() }}--}}
+{{--                        @method('DELETE')--}}
+{{--                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</button>--}}
+{{--                    </form>--}}
+{{--                    @endif--}}
                 </div>
             </div>
         </div>

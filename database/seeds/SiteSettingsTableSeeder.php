@@ -21,23 +21,23 @@ class SiteSettingsTableSeeder extends Seeder
             ],
             [
                 'key'   =>  'site_name',
-                'value' =>  'Canvas'
+                'value' =>  '"Canvas"'
             ],
             [
                 'key'   =>  'site_description',
-                'value' =>  'Canvas is an open source CMS starter kit built with Laravel. It provides a starting point for building an advanced website or your own content management system.'
+                'value' =>  '"Canvas is an open source CMS starter kit built with Laravel. It provides a starting point for building an advanced website or your own content management system."'
             ],
             [
                 'key'   =>  'from_name',
-                'value' =>  'Canvas Admin'
+                'value' =>  '"Canvas Admin"'
             ],
             [
                 'key'   =>  'from_email',
-                'value' =>  'admin@admin.com'
+                'value' =>  '"admin@admin.com"'
             ],
             [
                 'key'   =>  'notification_email',
-                'value' =>  'noreply@email.com'
+                'value' =>  '"noreply@email.com"'
             ],
             [
                 'key'   =>  'maintenance_mode',
@@ -53,19 +53,19 @@ class SiteSettingsTableSeeder extends Seeder
             ],
             [
                 'key'   =>  'business_name',
-                'value' =>  'ACME, Inc.'
+                'value' =>  '"ACME, Inc."'
             ],
             [
                 'key'   =>  'business_email',
-                'value' =>  ''
+                'value' =>  '"email@mybusiness.com"'
             ],
             [
                 'key'   =>  'business_phone',
-                'value' =>  '123-456-7890'
+                'value' =>  '"123-456-7890"'
             ],
             [
                 'key'   =>  'business_address',
-                'value' =>  '123 Sesame St'
+                'value' =>  '"123 Sesame St"'
             ],
             [
                 'key'   =>  'default_role',

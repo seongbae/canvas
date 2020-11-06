@@ -9,9 +9,44 @@ use App\Mail\ContactusSubmitted;
 
 class HomeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        return view('canvas::frontend.home');
+        return view('welcome');
+    }
+
+    public function showHome()
+    {
+        return view('canvas::admin.home');
+    }
+
+    public function home()
+    {
+        $comments = Comment::all();
+
+       // return view('canvas::frontend.home',compact('comments');
+    }
+
+    public function showAccount()
+    {
+        $user = Auth::user();
+
+        $timezone_select = Timezone::selectForm(
+            $user->timezone ? $user->timezone : 'US/Central',
+            '',
+            ['class' => 'form-control', 'name' => 'timezone']
+        );
+
+        $query = Team::query();
+        $datatables = TeamDatatable::make($query);
+
+        return view('canvas::admin.account', $datatables->html())
+                    ->with('user', $user)
+                    ->with('timezone_select', $timezone_select);
     }
 
     public function showContact()
@@ -31,18 +66,28 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-    
+
     private function addressToArray($emails)
     {
-        if( strpos($emails, ',') !== false ) 
+        if( strpos($emails, ',') !== false )
             return explode(",",$emails);
-        elseif( strpos($emails, ';') !== false ) 
+        elseif( strpos($emails, ';') !== false )
             return explode(";",$emails);
         else
             return $emails;
 
     }
-    
 
 
+    public function markNotification(Request $request)
+    {
+        auth()->user()
+            ->unreadNotifications
+            ->when($request->input('id'), function ($query) use ($request) {
+                return $query->where('id', $request->input('id'));
+            })
+            ->markAsRead();
+
+        return response()->noContent();
+    }
 }

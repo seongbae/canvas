@@ -39,7 +39,7 @@ class CanvasInstallCommand extends Command
         $this->info('Publishing files...');
 
         Artisan::call('vendor:publish', [
-            '--provider' => 'Seongbae\Canvas\CanvasServiceProvider', '--force' => true
+            '--provider' => 'Seongbae\Canvas\CanvasServiceProvider' //, '--force' => true
         ]);
 
         $this->info('Publish files complete.');

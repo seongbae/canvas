@@ -3389,16 +3389,16 @@
         },
         {
             "name": "seongbae/laravel-searchable",
-            "version": "1.8.1",
+            "version": "1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/seongbae/laravel-searchable.git",
-                "reference": "f46e5c8abbfbde64508dd594d867a982629c04a6"
+                "reference": "5774747fc4e1db8072aca7344219f0d0980cc6ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/seongbae/laravel-searchable/zipball/f46e5c8abbfbde64508dd594d867a982629c04a6",
-                "reference": "f46e5c8abbfbde64508dd594d867a982629c04a6",
+                "url": "https://api.github.com/repos/seongbae/laravel-searchable/zipball/5774747fc4e1db8072aca7344219f0d0980cc6ca",
+                "reference": "5774747fc4e1db8072aca7344219f0d0980cc6ca",
                 "shasum": ""
             },
             "require": {
@@ -3441,7 +3441,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/seongbae/laravel-searchable/tree/1.8.1"
+                "source": "https://github.com/seongbae/laravel-searchable/tree/1.8.2"
             },
             "funding": [
                 {
@@ -3449,7 +3449,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-12-05T05:04:26+00:00"
+            "time": "2020-12-05T06:13:17+00:00"
         },
         {
             "name": "spatie/eloquent-sortable",

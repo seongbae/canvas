@@ -70,7 +70,7 @@ class CanvasServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/activitylog.php', 'activitylog');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'canvas');
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php', 'canvas');
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');;
+        // $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');;
 
         if ($this->app->runningInConsole()) {
             $this->commands(CanvasInstallCommand::class);

@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
 use Blade;
 use Illuminate\Support\Facades\Log;
+use Laravel\Cashier\Cashier;
 use Schema;
 use Seongbae\Canvas\Console\CanvasInstallCommand;
 use Seongbae\Canvas\Console\CacheClearCommand;
@@ -31,7 +32,7 @@ class CanvasServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        
+        Cashier::ignoreMigrations();
     }
 
     /**
@@ -60,26 +61,25 @@ class CanvasServiceProvider extends ServiceProvider
         $this->publishes([__DIR__ . '/../resources/views' => resource_path('views/vendor/canvas')], ['canvas-views']);
         $this->publishes([__DIR__ . '/../resources/vendor' => resource_path('views/vendor')], ['canvas-install', 'canvas-vendor-views']);
 
+        // Migrations stubs
+        $this->publishes([__DIR__ . '/../database/migrations' => database_path('migrations')], ['canvas-install', 'canvas-seeds']);
+
         // Seeder stubs
-       //  $this->publishes([__DIR__ . '/../database/seeders' => database_path('seeders')], ['canvas-install', 'canvas-seeds']);
+        $this->publishes([__DIR__ . '/../database/seeders' => database_path('seeders')], ['canvas-install', 'canvas-seeds']);
 
         // Routes stubs
         $this->publishes([__DIR__ . '/../resources/stubs/routes/routes.stub' => base_path('routes/web.php')], ['canvas-install']);
 
-        
-        $this->mergeConfigFrom(__DIR__.'/../config/activitylog.php', 'activitylog');
+        // Config stubs
+        $this->publishes([__DIR__ . '/../config/activitylog.php' => config_path('activitylog.php')], 'config');
+        $this->publishes([__DIR__ . '/../config/permission.php' => config_path('permission.php')], 'config');
+
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'canvas');
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php', 'canvas');
-        // $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');;
 
         if ($this->app->runningInConsole()) {
             $this->commands(CanvasInstallCommand::class);
             $this->commands(GeneratesCrud::class);
         }
-
-        // Set config values from database
-        // config(['mail.from.name' => option('from_name')]);
-        // config(['mail.from.address' => option('from_email')]);
 
         $moduleMenus = array();
 

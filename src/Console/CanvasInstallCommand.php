@@ -35,7 +35,6 @@ class CanvasInstallCommand extends Command
 
         $this->info('Linking complete.');
 
-
         $this->info('Publishing files...');
 
         Artisan::call('vendor:publish', [

@@ -20,7 +20,8 @@
         "yajra/laravel-datatables-oracle": "~9.0",
         "intervention/image": "^2.5@dev",
         "laravel/ui": "^4.2",
-        "camroncade/timezone": "^0.2.0"
+        "camroncade/timezone": "^0.2.0",
+        "appstract/laravel-options": "dev-master"
     },
     "autoload": {
         "psr-4": {

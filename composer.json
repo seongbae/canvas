@@ -12,7 +12,6 @@
     ],
     "require": {
         "appstract/laravel-options": "^5.0",
-        "barryvdh/laravel-snappy": "^0.4",
         "laravel/cashier": "^12.4",
         "rap2hpoutre/laravel-log-viewer": "^1.7",
         "spatie/laravel-activitylog": "^3.0",

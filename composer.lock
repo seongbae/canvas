@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b57f10fc242042da944ea9646a70d0db",
+    "content-hash": "5dd2e57b7cdc8c761cb27ca1a370df61",
     "packages": [
         {
             "name": "appstract/laravel-options",
@@ -4024,32 +4024,37 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "v3.x-dev",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "b4d3184b67b974c3053085e7d7762ea88b9215ca"
+                "reference": "fd661702a3f8f7bb945547002473cd2e14f08784"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/b4d3184b67b974c3053085e7d7762ea88b9215ca",
-                "reference": "b4d3184b67b974c3053085e7d7762ea88b9215ca",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/fd661702a3f8f7bb945547002473cd2e14f08784",
+                "reference": "fd661702a3f8f7bb945547002473cd2e14f08784",
                 "shasum": ""
             },
             "require": {
-                "illuminate/auth": "^5.8|^6.0|^7.0|^8.0",
-                "illuminate/container": "^5.8|^6.0|^7.0|^8.0",
-                "illuminate/contracts": "^5.8|^6.0|^7.0|^8.0",
-                "illuminate/database": "^5.8|^6.0|^7.0|^8.0",
-                "php": "^7.2.5|^8.0"
+                "illuminate/auth": "^7.0|^8.0|^9.0|^10.0",
+                "illuminate/container": "^7.0|^8.0|^9.0|^10.0",
+                "illuminate/contracts": "^7.0|^8.0|^9.0|^10.0",
+                "illuminate/database": "^7.0|^8.0|^9.0|^10.0",
+                "php": "^7.3|^8.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^3.8|^4.0|^5.0|^6.0",
-                "phpunit/phpunit": "^8.0|^9.0",
+                "orchestra/testbench": "^5.0|^6.0|^7.0|^8.0",
+                "phpunit/phpunit": "^9.4",
                 "predis/predis": "^1.1"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
+                "branch-alias": {
+                    "dev-main": "5.x-dev",
+                    "dev-master": "5.x-dev"
+                },
                 "laravel": {
                     "providers": [
                         "Spatie\\Permission\\PermissionServiceProvider"
@@ -4076,7 +4081,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Permission handling for Laravel 5.8 and up",
+            "description": "Permission handling for Laravel 6.0 and up",
             "homepage": "https://github.com/spatie/laravel-permission",
             "keywords": [
                 "acl",
@@ -4090,7 +4095,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-permission/issues",
-                "source": "https://github.com/spatie/laravel-permission/tree/v3"
+                "source": "https://github.com/spatie/laravel-permission/tree/main"
             },
             "funding": [
                 {
@@ -4098,7 +4103,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-03T11:23:57+00:00"
+            "time": "2023-01-30T05:13:47+00:00"
         },
         {
             "name": "spatie/laravel-tags",

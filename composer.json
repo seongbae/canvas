@@ -24,7 +24,6 @@
         "yajra/laravel-datatables-oracle": "~9.0",
         "intervention/image": "^2.5@dev",
         "laravel/ui": "^3.0",
-        "laravelista/comments": "^4.0",
         "camroncade/timezone": "^0.2.0",
         "seongbae/laravel-searchable": "^1.8"
     },

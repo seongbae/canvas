@@ -18,7 +18,7 @@
         "spatie/laravel-activitylog": "^3.0",
         "spatie/laravel-flash": "^1.0",
         "spatie/laravel-permission": "^3.11",
-        "spatie/laravel-tags": "^3.0",
+        "spatie/laravel-tags": "^4.0",
         "stripe/stripe-php": "^7.0",
         "yajra/laravel-datatables": "^1.5",
         "yajra/laravel-datatables-oracle": "~9.0",

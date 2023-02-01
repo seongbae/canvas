@@ -14,7 +14,6 @@
         "appstract/laravel-options": "^5.0",
         "laravel/cashier": "^12.4",
         "rap2hpoutre/laravel-log-viewer": "^1.7",
-        "spatie/laravel-activitylog": "^3.0",
         "spatie/laravel-flash": "^1.0",
         "spatie/laravel-permission": "^3.11",
         "spatie/laravel-tags": "^4.0",

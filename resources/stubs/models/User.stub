@@ -12,7 +12,6 @@ use App\Achievement;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
-use Laravel\Cashier\Billable;
 
 class User extends Authenticatable implements Searchable
 {

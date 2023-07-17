@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
 use Blade;
 use Illuminate\Support\Facades\Log;
-use Laravel\Cashier\Cashier;
 use Schema;
 use Seongbae\Canvas\Console\CanvasInstallCommand;
 use Seongbae\Canvas\Console\CacheClearCommand;
@@ -32,7 +31,6 @@ class CanvasServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Cashier::ignoreMigrations();
     }
 
     /**

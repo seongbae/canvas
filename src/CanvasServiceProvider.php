@@ -42,22 +42,22 @@ class CanvasServiceProvider extends ServiceProvider
     {
         $this->publishes([__DIR__ . '/../public' => public_path('canvas')], ['canvas-install','canvas-public']);
 
-        // Controller stubs
-        $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/ConfirmPasswordController.stub' => app_path('Http/Controllers/Auth/ConfirmPasswordController.php')], 'canvas-install');
-        $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/ForgotPasswordController.stub' => app_path('Http/Controllers/Auth/ForgotPasswordController.php')], 'canvas-install');
-        $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/LoginController.stub' => app_path('Http/Controllers/Auth/LoginController.php')], 'canvas-install');
-        $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/RegisterController.stub' => app_path('Http/Controllers/Auth/RegisterController.php')], 'canvas-install');
-        $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/ResetPasswordController.stub' => app_path('Http/Controllers/Auth/ResetPasswordController.php')], 'canvas-install');
-        $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/VerificationController.stub' => app_path('Http/Controllers/Auth/VerificationController.php')], 'canvas-install');
-        $this->publishes([__DIR__ . '/../resources/stubs/controllers/WelcomeController.stub' => app_path('Http/Controllers/WelcomeController.php')], 'canvas-install');
-        $this->publishes([__DIR__ . '/../resources/stubs/controllers/HomeController.stub' => app_path('Http/Controllers/HomeController.php')], 'canvas-install');
-
-        // Model stubs
-        $this->publishes([__DIR__ . '/../resources/stubs/models/User.stub' => app_path('/Models/User.php')], 'canvas-install');
+//        // Controller stubs
+//        $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/ConfirmPasswordController.stub' => app_path('Http/Controllers/Auth/ConfirmPasswordController.php')], 'canvas-install');
+//        $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/ForgotPasswordController.stub' => app_path('Http/Controllers/Auth/ForgotPasswordController.php')], 'canvas-install');
+//        $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/LoginController.stub' => app_path('Http/Controllers/Auth/LoginController.php')], 'canvas-install');
+//        $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/RegisterController.stub' => app_path('Http/Controllers/Auth/RegisterController.php')], 'canvas-install');
+//        $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/ResetPasswordController.stub' => app_path('Http/Controllers/Auth/ResetPasswordController.php')], 'canvas-install');
+//        $this->publishes([__DIR__ . '/../resources/stubs/controllers/auth/VerificationController.stub' => app_path('Http/Controllers/Auth/VerificationController.php')], 'canvas-install');
+//        $this->publishes([__DIR__ . '/../resources/stubs/controllers/WelcomeController.stub' => app_path('Http/Controllers/WelcomeController.php')], 'canvas-install');
+//        $this->publishes([__DIR__ . '/../resources/stubs/controllers/HomeController.stub' => app_path('Http/Controllers/HomeController.php')], 'canvas-install');
+//
+//        // Model stubs
+//        $this->publishes([__DIR__ . '/../resources/stubs/models/User.stub' => app_path('/Models/User.php')], 'canvas-install');
 
         // View stubs
-        $this->publishes([__DIR__ . '/../resources/views' => resource_path('views/vendor/canvas')], ['canvas-views']);
-        $this->publishes([__DIR__ . '/../resources/vendor' => resource_path('views/vendor')], ['canvas-install', 'canvas-vendor-views']);
+//        $this->publishes([__DIR__ . '/../resources/views' => resource_path('views/vendor/canvas')], ['canvas-views']);
+//        $this->publishes([__DIR__ . '/../resources/vendor' => resource_path('views/vendor')], ['canvas-install', 'canvas-vendor-views']);
 
         // Migrations stubs
         $this->publishes([__DIR__ . '/../database/migrations' => database_path('migrations')], ['canvas-install', 'canvas-seeds']);
@@ -66,11 +66,15 @@ class CanvasServiceProvider extends ServiceProvider
         $this->publishes([__DIR__ . '/../database/seeders' => database_path('seeders')], ['canvas-install', 'canvas-seeds']);
 
         // Routes stubs
-        $this->publishes([__DIR__ . '/../resources/stubs/routes/routes.stub' => base_path('routes/web.php')], ['canvas-install']);
+        //$this->publishes([__DIR__ . '/../resources/stubs/routes/routes.stub' => base_path('routes/web.php')], ['canvas-install']);
 
         // Config stubs
         $this->publishes([__DIR__ . '/../config/activitylog.php' => config_path('activitylog.php')], 'config');
         $this->publishes([__DIR__ . '/../config/permission.php' => config_path('permission.php')], 'config');
+
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/canvas.php','canvas'
+        );
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'canvas');
 
@@ -79,29 +83,7 @@ class CanvasServiceProvider extends ServiceProvider
             $this->commands(GeneratesCrud::class);
         }
 
-        $moduleMenus = array();
-
-        if(is_dir(app_path('Modules'))) {
-            $cdir = scandir(app_path('Modules'));
-
-            foreach ($cdir as $key => $value) {
-                if (!in_array($value, array(".", ".."))) {
-                    if (is_dir(app_path('Modules') . DIRECTORY_SEPARATOR . $value)) {
-                        app('config')->set('custom', require app_path('Modules/' . $value . '/module.php'));
-                        \App::register('App\Modules\\' . $value . '\\' . config('custom.service_provider'));
-                        $moduleMenus[] = config('custom.admin_menus');
-                    }
-                }
-            }
-        }
-
-        view()->composer('*', function ($view) use ($moduleMenus) {
-            $view->with('moduleMenus', $moduleMenus);
-        });
-
-        // for loading page routes dynamically
-        \App::register('Seongbae\Canvas\Providers\PageServiceProvider');
-        \App::register('Camroncade\Timezone\TimezoneServiceProvider');
+        $this->loadRoutesFrom(__DIR__ .  '/../routes/web.php');
 
         $this->loadViewComponentsAs('canvas', [
             Checkbox::class,

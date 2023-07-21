@@ -4,18 +4,18 @@ namespace Seongbae\Canvas\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
+use Alert;
 use Debugbar;
 use Cache;
 use Auth;
+use File;
+use Storage;
 use Yajra\Datatables\Datatables;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\Hash;
-use Alert;
 use Seongbae\Canvas\DataTables\UsersDataTable;
 use Seongbae\Canvas\Http\Controllers\CanvasController;
-use File;
-use Storage;
 use Seongbae\Canvas\Traits\UploadTrait;
 use Seongbae\Canvas\Events\NewUserCreated;
 
@@ -23,34 +23,6 @@ class UsersController extends CanvasController
 {
 
     use UploadTrait;
-
-    const USER_IMG_STORAGE_PATH = 'app/public/users';
-    const USER_IMG_ASSET_PATH = 'storage/users';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->middleware('auth');
-    }  
-
-    public function getAll()
-    {
-        $users = User::all();
-
-        return "<pre>".$users->toJson(JSON_PRETTY_PRINT)."</pre>";
-    }
-
-    public function getUser($id)
-    {
-        $user = User::find($id);
-
-        return $user;
-    }
 
     public function index(UsersDataTable $datatable)
     {
@@ -82,17 +54,10 @@ class UsersController extends CanvasController
         $user->email =$request->get('email');
         $user->password = Hash::make($request->get('password'));
 
-        if ($request->get('timezone'))
-            $user->timezone = $request->get('timezone');
-        else
-            $user->timezone = 'US/Central'; // set default timezone
 
         if ($request->file('file'))
-            $user->photo_url = $this->uploadOne($request->file('file'), 'users', 'public');
+            $user->{config('canvas.user_image_field')} = Storage::url($this->uploadOne($request->file('file'), 'users', 'public'));
 
-        if ($request->get('timezone'))
-            $user->timezone = $request->get('timezone');
-        
         $user->save();
 
         if ($request->get('role'))
@@ -112,6 +77,14 @@ class UsersController extends CanvasController
         flash()->success('User successfully created', 'Success');
 
         return redirect()->route('admin.users.index');
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+
+        return view('canvas::admin.users.show')
+            ->with('user', $user);
     }
 
     public function edit($id)
@@ -147,11 +120,8 @@ class UsersController extends CanvasController
         if ($request->get('role'))
             $user->syncRoles($request->get('role'));
 
-        if ($request->get('timezone'))
-            $user->timezone = $request->get('timezone');
-        
         if ($request->file('file'))
-            $user->photo_url = $this->uploadOne($request->file('file'), 'users', 'public');
+            $user->{config('canvas.user_image_field')} = Storage::url($this->uploadOne($request->file('file'), 'users', 'public'));
         
         $user->save();
 
@@ -169,7 +139,5 @@ class UsersController extends CanvasController
 
         return redirect()->route('admin.users.index');
     }
-
-
 
 }

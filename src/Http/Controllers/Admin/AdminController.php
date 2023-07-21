@@ -30,7 +30,7 @@ class AdminController extends CanvasController
         $this->middleware('auth');
     }  
 
-    public function showHome()
+    public function index()
     {
         return view('canvas::admin.home');
     }
@@ -302,13 +302,7 @@ class AdminController extends CanvasController
     {
         $user = Auth::user();
 
-        $timezone_select = Timezone::selectForm(
-            $user->timezone ? $user->timezone : 'US/Central', 
-            '', 
-            ['class' => 'form-control', 'name' => 'timezone']
-        );
-
-        return view('canvas::admin.account', compact('user','timezone_select'));    
+        return view('canvas::admin.account', compact('user'));
     }
 
 }

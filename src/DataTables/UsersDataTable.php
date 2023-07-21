@@ -2,7 +2,6 @@
 
 namespace Seongbae\Canvas\DataTables;
 
-use App\Models\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -21,15 +20,12 @@ class UsersDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            //->orderBy('id')
-            // ->orderColumn('id', function ($query, $order) {
-            //          $query->orderBy('id', $order);
-            //      });
             ->addColumn('user_image', function($row) {
-                return '<a href="'.route('admin.users.edit', $row->id).'"><img src="'. $row->photo .'" style="width:40px;" class="rounded-circle"></a>';
+                $imageAttribute = config('canvas.user_image_field');
+                return '<a href="'.route('admin.users.show', $row->id).'"><img src="'. $row->$imageAttribute .'" style="width:40px;" class="rounded-circle"></a>';
             })
             ->editColumn('name', function($row) {
-                return '<a href="'.route('admin.users.edit', $row->id).'">'.$row->name.'</a>';
+                return '<a href="'.route('admin.users.show', $row->id).'">'.$row->name.'</a>';
             })
             ->editColumn('created_at', function($row) {
                 return $row->created_at->format('Y-m-d');
@@ -52,9 +48,10 @@ class UsersDataTable extends DataTable
      * @param \App\Event $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model)
+    public function query()
     {
-        return $model->with('roles')->orderBy('created_at','desc')->newQuery();
+        $model = config('auth.providers.users.model');
+        return $model::orderBy('created_at','desc')->newQuery();
     }
 
     /**
@@ -69,13 +66,13 @@ class UsersDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
-                    ->orderBy(1)
+                    ->orderBy(0)
                     ->buttons(
-                        Button::make('create')
-                        // Button::make('export'),
-                        // Button::make('print'),
-                        // Button::make('reset'),
-                        // Button::make('reload')
+                        Button::make('create'),
+                         Button::make('export'),
+                         Button::make('print'),
+                         Button::make('reset'),
+                         Button::make('reload')
                     );
     }
 
@@ -87,16 +84,14 @@ class UsersDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('id')->title('ID')->width(40),
             Column::computed('user_image')
                     ->title('')
-                    ->with(60),
+                    ->width(40),
             Column::make('name'),
             Column::make('email'),
-            Column::make('role'),
             Column::make('created_at')
                     ->title('Created'),
-            Column::make('last_login_at')
-                    ->title('Last Login'),
             Column::computed('action')->title('')
                   ->exportable(false)
                   ->printable(false)
@@ -111,7 +106,7 @@ class UsersDataTable extends DataTable
      *
      * @return string
      */
-    protected function filename()
+    protected function filename() : string
     {
         return 'Users_' . date('YmdHis');
     }

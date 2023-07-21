@@ -35,18 +35,11 @@ class HomeController extends Controller
     {
         $user = Auth::user();
 
-        $timezone_select = Timezone::selectForm(
-            $user->timezone ? $user->timezone : 'US/Central',
-            '',
-            ['class' => 'form-control', 'name' => 'timezone']
-        );
-
         $query = Team::query();
         $datatables = TeamDatatable::make($query);
 
         return view('canvas::admin.account', $datatables->html())
-                    ->with('user', $user)
-                    ->with('timezone_select', $timezone_select);
+                    ->with('user', $user);
     }
 
     public function showContact()

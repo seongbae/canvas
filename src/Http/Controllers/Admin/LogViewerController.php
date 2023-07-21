@@ -6,12 +6,6 @@ use Illuminate\Support\Facades\Crypt;
 use Seongbae\Canvas\Http\Controllers\CanvasController;
 use Rap2hpoutre\LaravelLogViewer\LaravelLogViewer;
 
-if (class_exists("\\Illuminate\\Routing\\Controller")) {
-    class BaseController extends \Illuminate\Routing\Controller {}
-} elseif (class_exists("Laravel\\Lumen\\Routing\\Controller")) {
-    class BaseController extends \Laravel\Lumen\Routing\Controller {}
-}
-
 /**
  * Class LogViewerController
  * @package Rap2hpoutre\LaravelLogViewer

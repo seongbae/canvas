@@ -1,6 +1,6 @@
 {
     "name": "seongbae/canvas",
-    "description": "A Laravel 8 admin panel package.",
+    "description": "A Laravel admin panel package.",
     "homepage": "https://github.com/seongbae/canvas",
     "license": "MIT",
     "authors": [
@@ -11,16 +11,9 @@
         }
     ],
     "require": {
-        "rap2hpoutre/laravel-log-viewer": "^2.0",
-        "spatie/laravel-flash": "^1.0",
-        "spatie/laravel-permission": "^5.8",
-        "spatie/laravel-tags": "^4.0",
-        "stripe/stripe-php": "^7.0",
-        "yajra/laravel-datatables": "^1.5",
-        "yajra/laravel-datatables-oracle": "~9.0",
-        "intervention/image": "^2.5@dev",
         "laravel/ui": "^4.2",
-        "appstract/laravel-options": "dev-master"
+        "yajra/laravel-datatables": "^10.0",
+        "spatie/laravel-site-search": "^1.0.0"
     },
     "autoload": {
         "psr-4": {

@@ -23,9 +23,6 @@ Route::group(['namespace'=>'Seongbae\Canvas\Http\Controllers\Admin', 'prefix' =>
 	// Admin home
 	Route::get('/', 'AdminController@showHome');
 
-	// Pages controller
-	Route::resource('pages', 'PagesController', ['as'=>'admin']);
-
 	// Account controller
 	Route::get('account', 'AdminController@showAccount');
 	Route::post('account', 'AdminController@saveccount');
@@ -33,9 +30,6 @@ Route::group(['namespace'=>'Seongbae\Canvas\Http\Controllers\Admin', 'prefix' =>
 	// User management
 	Route::resource('users/roles', 'RolesController', ['as'=>'admin']);
 	Route::resource('users', 'UsersController', ['as'=>'admin']);
-
-	// Media management
-	Route::resource('media', 'MediaController', ['as'=>'admin']);
 
 	// Settings
 	Route::get('settings', 'AdminController@showSettings')->name('admin.settings');

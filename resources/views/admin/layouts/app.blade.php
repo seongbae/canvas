@@ -41,22 +41,11 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
-    <form class="form-inline ml-3" action="{{ route('admin.search') }}" method="POST">
-      @csrf
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" name="query" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="/admin/account" aria-expanded="false">
-          <img src="{{Auth::user()->photo}}" alt="user" class="rounded-circle" width="30">
+          <img src="{{ Auth::user()->{config('canvas.user_image_field')} }}" alt="user" class="rounded-circle" width="30">
           <span class="ml-2 font-medium">{{Auth::user()->name}}</span>
           <span class="fas fa-angle-down ml-2"></span>
         </a>
@@ -92,7 +81,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{Auth::user()->photo}}" class="img-circle elevation-2" alt="{{Auth::user()->name}}">
+          <img src="{{ Auth::user()->{config('canvas.user_image_field')} }}" class="img-circle elevation-2" alt="{{Auth::user()->name}}">
         </div>
         <div class="info">
           <a href="/admin/account" class="d-block">{{ Auth::user()->name }}</a>
@@ -100,7 +89,7 @@
       </div>
 
       <!-- Sidebar Menu -->
-      @include('canvas::admin.nav')
+      @include('canvas::admin.partials.nav')
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

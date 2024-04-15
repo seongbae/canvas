@@ -119,7 +119,7 @@ class ActivitiesDataTable extends DataTable
      *
      * @return string
      */
-    protected function filename()
+    protected function filename() : string
     {
         return 'Activities_' . date('YmdHis');
     }

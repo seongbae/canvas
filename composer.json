@@ -20,7 +20,7 @@
         "yajra/laravel-datatables-oracle": "~9.0",
         "intervention/image": "^2.5@dev",
         "laravel/ui": "^4.2",
-        "appstract/laravel-options": "dev-master"
+        "appstract/laravel-options": "^5.7"
     },
     "autoload": {
         "psr-4": {
@@ -38,5 +38,5 @@
             ]
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }

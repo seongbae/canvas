@@ -13,7 +13,7 @@
     "require": {
         "rap2hpoutre/laravel-log-viewer": "^2.0",
         "spatie/laravel-flash": "^1.0",
-        "spatie/laravel-permission": "^5.8",
+        "spatie/laravel-permission": "^6.0",
         "spatie/laravel-tags": "^4.0",
         "stripe/stripe-php": "^7.0",
         "intervention/image": "^2.5@dev",

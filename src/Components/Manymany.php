@@ -16,8 +16,9 @@ class Manymany extends Component
     public $empty;
     public $deleteLink;
     public $additionalFields;
+    public $required;
 
-    public function __construct($name, $options, $empty = true, $label = null, $id = null, $value = null, $hint = null, $disabled = false, $deleteLink = null, $additionalFields=null)
+    public function __construct($name, $options, $required = false, $empty = true, $label = null, $id = null, $value = null, $hint = null, $disabled = false, $deleteLink = null, $additionalFields=null)
     {
         $this->name = $name;
         $this->options = $this->formatOptions($options);
@@ -29,6 +30,7 @@ class Manymany extends Component
         $this->disabled = $disabled;
         $this->deleteLink = $deleteLink;
         $this->additionalFields = $additionalFields;
+        $this->required = $required;
     }
 
     public function render()

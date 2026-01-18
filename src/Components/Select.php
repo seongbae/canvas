@@ -14,8 +14,9 @@ class Select extends Component
     public $options;
     public $value;
     public $empty;
+    public $required;
 
-    public function __construct($name, $options, $empty = true, $label = null, $id = null, $value = null, $hint = null, $disabled = false)
+    public function __construct($name, $options, $required = false, $empty = true, $label = null, $id = null, $value = null, $hint = null, $disabled = false)
     {
         $this->name = $name;
         $this->options = $this->formatOptions($options);
@@ -25,6 +26,7 @@ class Select extends Component
         $this->value = $value;
         $this->hint = $hint;
         $this->disabled = $disabled;
+        $this->required = $required;
     }
 
     public function render()

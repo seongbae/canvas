@@ -1,7 +1,10 @@
 <div class="list-group-item py-3">
     <div class="row">
         @if($label)
-            <label class="col-form-label col-md-2 py-md-0">{{ $label }}</label>
+            <label class="col-form-label col-md-2 py-md-0">{{ $label }}
+                @if ($required)
+                    *
+                @endif</label>
         @endif
         <div class="col-md {{ !$label ? 'offset-md-2' : '' }}">
             <div class="custom-control custom-checkbox">

@@ -1,6 +1,9 @@
 <div class="list-group-item py-3">
     <div class="row">
-        <label class="col-form-label col-md-2 py-md-0">{{ $label }}</label>
+        <label class="col-form-label col-md-2 py-md-0">{{ $label }}
+            @if ($required)
+                *
+            @endif</label>
         <div class="col-md">
             <input type="hidden" name="{{ $name }}" value="">
 

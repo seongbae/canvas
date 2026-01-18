@@ -13,8 +13,9 @@ class File extends Component
     public $file_label;
     public $multiple;
     public $value;
+    public $required;
 
-    public function __construct($name, $label = null, $fileLabel = null, $id = null, $multiple = false, $hint = null, $disabled = false, $value = null, $path = null)
+    public function __construct($name, $required = false, $label = null, $fileLabel = null, $id = null, $multiple = false, $hint = null, $disabled = false, $value = null, $path = null)
     {
         $this->name = $name;
         $this->label = $label ?? Str::title(str_replace('_', ' ', $name));
@@ -24,6 +25,7 @@ class File extends Component
         $this->hint = $hint;
         $this->disabled = $disabled;
         $this->value = $path . $value; // change later to account for different file types icon
+        $this->required = $required;
     }
 
     public function render()

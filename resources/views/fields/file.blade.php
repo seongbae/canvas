@@ -1,6 +1,10 @@
 <div class="list-group-item py-3">
     <div class="row">
-        <label class="col-form-label col-md-2">{{ $label }}</label>
+        <label class="col-form-label col-md-2">{{ $label }}
+            @if ($required)
+                *
+            @endif
+        </label>
         <div class="col-md">
             <div class="custom-file">
               @if ($value) <img src="{{$value}}" width="80px"> @endif

@@ -13,8 +13,9 @@ class Checkbox extends Component
     public $checkbox_label;
     public $value;
     public $checked;
+    public $required;
 
-    public function __construct($name, $label = null, $checkboxLabel = null, $id = null, $value = null, $checked = null, $hint = null, $disabled = false)
+    public function __construct($name, $required = false, $label = null, $checkboxLabel = null, $id = null, $value = null, $checked = null, $hint = null, $disabled = false)
     {
         $this->name = $name;
         $this->label = $label;
@@ -24,6 +25,7 @@ class Checkbox extends Component
         $this->checked = $checked;
         $this->hint = $hint;
         $this->disabled = $disabled;
+        $this->required = $required;
     }
 
     public function render()

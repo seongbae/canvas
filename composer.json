@@ -18,9 +18,9 @@
         "stripe/stripe-php": "^7.0",
         "intervention/image": "^2.5@dev",
         "laravel/ui": "^4.2",
-        "appstract/laravel-options": "^6.0",
-        "yajra/laravel-datatables-oracle": "^11",
-        "yajra/laravel-datatables": "^11"
+        "appstract/laravel-options": "^6.0|^7.0",
+        "yajra/laravel-datatables-oracle": "^11|^12",
+        "yajra/laravel-datatables": "^11|^12"
     },
     "autoload": {
         "psr-4": {
